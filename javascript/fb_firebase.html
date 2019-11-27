@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fb</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="firebase2.js"></script>
+<script type="text/javascript">
+
+ var config = {
+       apiKey: "AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M",
+       authDomain: "telugismregister.firebaseapp.com",
+       databaseURL: "https://telugismregister.firebaseio.com",
+       storageBucket: "telugismregister.appspot.com",
+      };
+
+      firebase.initializeApp(config);
+
+
+var provider = new firebase.auth.FacebookAuthProvider();
+	firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  console.log(user);
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  console.log(errorCode);
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+</script>
+</body>
+</html>

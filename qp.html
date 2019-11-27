@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelugISM</title>
+    <!-- Core CSS - Include with every page -->
+
+
+
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+   
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+  
+    
+<link rel="stylesheet" href="css/qp_css.css" />
+  <link rel="stylesheet" href="assets/animate/animate.css" />
+  <link rel="stylesheet" href="assets/animate/set.css" />
+<link href="assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    
+   </head>
+<body>
+    <!--  wrapper -->
+   <div id="page-wrapper" style="margin-left: 0px; " >
+            <div class="row">
+                <!-- Page Header -->
+                 <div class="col-lg-12">
+                    <h1 class="page-header">Question Papers</h1>
+                </div>
+
+            </div>
+  <div class="row">
+    <div class="dropdown" style="margin-left: 7%;  " >
+      <select name="year" id="year" onchange="year()" class="dropdown-select" >
+        <option value="">Select Year</option>
+        <option value="1">First Year</option>
+        <option value="2">Second Year</option>
+        <option value="3">Third Year</option>
+         <option value="4">Final Year</option>
+      </select>
+    </div>
+
+
+  <div class="dropdown" id="semester_div" style="margin-left: 7%; visibility: hidden; " >
+      <select name="semester" id="semester" onchange="semester()" class="dropdown-select" >
+        <option value="">Select Semester</option>
+       <option value="1">First Semester</option>
+        <option value="2">Second Semester</option>
+      </select>
+    </div>
+
+ <div class="dropdown" id="sub_semester_div" style="margin-left: 7%; visibility: hidden; " >
+      <select name="mid_end" id="mid_end" onchange="sub_semester()" class="dropdown-select" >
+        <option value="">Select Sub Semester</option>
+        <option value="mid">Mid Semester</option>
+        <option value="end">End Semester</option>
+      </select>
+    </div>
+
+  <div class="dropdown" id="subject_div" style="margin-left: 7%; visibility: hidden; " >
+      <select name="subject" id="subject" onchange="myFunction()" class="dropdown-select" >
+        <option value="">Select Subject</option>
+       
+      </select>
+    </div>
+
+
+
+  </div>
+  <script type="text/javascript" src="javascript/jquery.js"></script>
+   <script type="text/javascript" src="javascript/firebase2.js"></script>
+
+  <script type="text/javascript">
+    
+    function year(){
+     var year=$('#year').val();
+    document.getElementById('semester_div').style.visibility='visible';
+    document.getElementById('sub_semester_div').style.visibility='hidden';
+    document.getElementById('subject_div').style.visibility='hidden';
+   }
+
+   function semester(){
+     var semester=$('#semester').val();
+    document.getElementById('sub_semester_div').style.visibility='visible';
+    document.getElementById('subject_div').style.visibility='hidden';
+   }
+  function sub_semester(){
+     var sub_semester=$('#sub_semester').val();
+    document.getElementById('subject_div').style.visibility='visible';
+   
+   }
+
+
+  </script>
+ 
+           
+
+            <!-- ========================= --
+
+
+         
+
+
+        </div>
+        <!-- end page-wrapper -->
+
+    
+    <!-- end wrapper -->
+
+
+    <!-- Core Scripts - Include with every page -->
+
+    
+
+</body>
+
+</html>

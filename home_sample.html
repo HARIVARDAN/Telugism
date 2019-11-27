@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelugISM</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/main-style.css" rel="stylesheet" />
+
+    <!-- Page-Level CSS -->
+   <script type="text/javascript" src="javascript/jquery.js"></script>
+   <script type="text/javascript" src="javascript/firebase2.js"></script>
+   <script type="text/javascript" src="javascript/firebase.js"></script>
+   <script>
+  
+
+</script>
+</head>
+
+<body>
+
+
+<a href="#" class="btn"  style="position: fixed; bottom: 38px; right: 10px; background-color: #f1f1f1" id="toTop"> <i class="icon-arrow-up"></i> Go to top</a>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home4.html">
+                  <strong> <h2 class="brand" style="color: #000000">Telug<span style="color:red">ISM</span></h2></b></strong>
+                </a>
+            </div>
+
+              <div class="user-info" style="align-content: center; padding-left: 30%; ">
+                    <div id="user_name" style="font-size: 25px; text-align: center; text-transform: uppercase;"> </div>
+              </div>
+             <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li id="notiifcation_symbol" class="dropdown" style="cursor: pointer;" >
+                    <a class="dropdown-toggle" >
+                        <span class="top-label label label-danger"></span><i class="fa fa-envelope fa-3x"></i>
+                    </a>
+                </li>
+
+                <li id="chat_symbol" class="dropdown" style="cursor: pointer;">
+                    <a class="dropdown-toggle" >
+                        <span class="top-label label label-success"></span>  <i class="fa fa-tasks fa-3x"></i>
+                    </a>
+                    <!-- dropdown tasks -->
+                    <!-- end dropdown-tasks -->
+                </li>
+
+                <li id="search_symbol" class="dropdown" style="cursor: pointer;">
+                    <a class="dropdown-toggle">
+                        <span class="top-label label label-warning"></span><i class="fa fa-bell fa-3x"></i>
+                    </a>
+                    <!-- dropdown alerts--> <!-- end dropdown-alerts -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle"  data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li id="profile_symbol" ><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>
+                        <li  class="divider"></li>
+                        <li id="logout_li_1" >
+                        <a> <i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                      </li>
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+
+            <!-- user image section--> <!--end user image section--> <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+
+        </nav>
+        <!-- end navbar top -->
+
+        <!-- navbar side -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+       
+            <!-- sidebar-collapse -->
+            <div class="sidebar-collapse">
+                <!-- side-menu -->
+                <ul class="nav" id="side-menu">
+
+
+                  <li>
+                        <!-- user image section-->
+                        <div class="user-section">
+                            <div class="user-section-inner">
+                                <img id="user_image" src="assets/img/user.jpg" alt="">
+                            </div>
+                            <div class="user-info">
+                                <div id="side_user_name" style="text-transform: uppercase;" > User Name<strong></strong></div>
+                                <div class="user-text-online">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!--end user image section-->
+                    </li>
+
+                 <li class="sidebar-search">
+                        <!-- search section-->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!--end search section-->
+                   </li>
+                   <li class="non_selected_btn" id="notification_li"  style="cursor: pointer; "  >
+                       <a  > 
+                          <i class="fa fa-dashboard fa-fw"></i>Notifications
+                      </a>
+                   </li>
+                   
+                     
+                 <li id="chat_li" style="cursor: pointer; " >
+                        <a>
+                       <i class="fa fa-comment fa-fw"></i>Chat</a>
+                        
+                   </li>
+
+                     <li id="search_li" style="cursor: pointer; ">
+                  
+                        <a >
+                        <i class="fa fa-search"></i>&nbsp Search</a>
+
+                    </li>    
+                  
+                        <li id="profile_li" style="cursor: pointer; ">
+                         <a>
+                         <i class="fa fa-edit fa-fw"></i>
+                          Profile</a>
+                        </li>
+                
+                      <li>
+                        <a   href="#"> <i class="fa fa-sitemap fa-fw"></i>ISM<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            
+                            <li id="clubs_li" style="cursor: pointer; " >
+                                <a>
+                                 ISM Clubs</a>
+                           
+                            <li id="fests_li" style="cursor: pointer; " >
+                                <a>ISM Fests</a>
+                            </li>
+                            <li id="startups_li"   style="cursor: pointer; ">
+                                <a>ISM startups</a>
+                            </li>
+                            <li id="activities_li"  style="cursor: pointer; ">
+                                <a>Activities</a>
+                            </li>
+                            
+                        </ul>
+                      </li>
+
+                   <li>
+                        <a   href="#"> <i class="fa fa-sitemap fa-fw"></i>Placements<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            
+                            <li id="placements_2015_li" style="cursor: pointer; " >
+                                <a>
+                                 2015</a>
+                           </li>
+                            <li id="placements_2014_li" style="cursor: pointer; " >
+                                <a>2014</a>
+                            </li>
+                            <li id="placements_2013_li"   style="cursor: pointer; ">
+                                <a>2013</a>
+                            </li>
+                            <li id="placements_2012_li"  style="cursor: pointer; ">
+                                <a>2012</a>
+                            </li>
+                             <li id="placements_2011_li" style="cursor: pointer; " >
+                                <a>
+                                 2011</a>
+                           </li>
+                            <li id="placements_2010_li" style="cursor: pointer; " >
+                                <a>2010</a>
+                            </li>
+                            <li id="placements_2009_li"   style="cursor: pointer; ">
+                                <a>2009</a>
+                            </li>
+                            <li id="placements_2008_li"  style="cursor: pointer; ">
+                                <a>2008</a>
+                            </li>
+                            <li id="placements_2007_li"  style="cursor: pointer; ">
+                                <a>2007</a>
+                            </li>
+                        </ul>
+                      </li>
+
+
+
+                        <!-- second-level-items -->
+                        <li id="alumni_li"  style="cursor: pointer; ">
+                             <a><i class="fa fa-sign-out fa-fw"></i>Alumni</a>
+                        </li>
+                        <li id="ism_route_map_li"  style="cursor: pointer; ">
+                             <a><i class="fa fa-sign-out fa-fw"></i>ISM Route Map</a>
+                        </li>
+
+                        <li id="qp_li" style="cursor: pointer; "  >
+                             <a ><i class="fa fa-sign-out fa-fw"></i>Question Papers</a>
+                        </li>
+                        <li id="logout_li" style="cursor: pointer; ">
+                             <a><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                  
+                    
+                    
+                        
+                        <!-- second-level-items -->
+                    
+                </ul>
+                <!-- end side-menu -->
+            </div>
+            <!-- end sidebar-collapse -->
+        </nav>
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+<div id="page-wrapper"  >
+    
+    <div id="row">
+
+       <div class="col-lg-16" id="notification_page"><BR>
+
+         <div class="row">
+            <div class="col-lg-12">
+               <h1 class="page-header">Notifications</h1>
+           </div>
+        </div> 
+
+   <div class="row">
+     <div class="col-lg-9">
+      <div class="panel-footer" align="center" >
+       <button class="btn btn-warning btn-sm"  id="post_btn" style="align-self: center; " >Write a Post....
+       </button>
+     </div>
+    </div>
+  </div>
+<br>
+<div class="row">           
+  <div class="col-lg-9"> 
+    <div style="text-align: center; " id="posts_start" >       
+  <br/>
+  </div>
+</div>
+<div class="col-lg-3" >
+    <div class="alert alert-danger text-center">
+        <i class="fa fa-calendar fa-3x"></i><br>&nbsp;<b>20 </b> members have birthday today.
+   </div>
+</div>
+</div>
+<script type="text/javascript" src="javascript/firebase2.js"></script>
+
+ <!-- modals
+  ================================================== -->
+<div class="modal fade" id="uploading" role="dialog">
+    <div class="modal-dialog">
+       <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="title"></h4>
+        </div>
+     </div>
+      
+    </div>
+ </div>
+
+
+<div class="modal fade" id="post_info" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" align="center" >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 style="color: orange; " >My Post</h3>
+          <h4 class="modal-title" >
+         </h4>
+            <input type="text" class="form-control input-sm" id="heading" style="width: 65%; " placeholder="Title">
+           
+        </div>
+        <div class="modal-body">
+     
+                   <div class="btn btn-warning btn-sm" id="image-upload" >
+                            <label for="image-input" >
+                               
+                              <img src="images/gallery2.jpg" width="35px" height="30px;"  >
+                            </label>
+                            <input type="file" accept="image/*,capture=camera" id="image-input">
+                     </div>
+           
+                  <div class="btn btn-warning btn-sm" id="file-upload" >
+                             <label for="file-input" >
+                               
+                              <img src="images/file_open2.jpg" width="35px" height="35px;"  >
+                            </label>
+                            <input type="file" accept="file/*" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" id="file-input">
+                     </div>
+                  
+                     <br>
+                 <h4 id="file_name" ></h4>
+                     <br>
+      <img src="assets/img/user.jpg" id="image_post" style="max-width: 300px;max-height: 550px; " ><br><br>
+              <hr>
+           <h5> </h5>
+          <p style="font-size: 16px;" id="info">
+            <textarea class="form-control input-sm" id="more_info_txt" name="" placeholder="More Information" rows="8" style="width: 80%; height: 120px;" cols="5"></textarea>
+          </p>
+        </div>
+        <button style="background-color: green; width: 25%;height: 4%; font-size: 25px; " id="post" >Post</button>
+         <br><br>
+      </div>
+     
+    </div>
+  </div>
+
+
+
+<style type="text/css">
+  
+  #image-upload > input{
+    display: none;
+  }
+   #file-upload > input{
+    display: none;
+  }
+</style>
+
+    </div>
+
+
+    <div class="col-lg-16" id="chat_page" style="display: none; "><BR>
+
+             <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">Chat</h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+
+            <div class="row">
+                <!-- Welcome -->
+                  <div id="start_chart" class="col-lg-9">
+                    <div  id="panel_chat" class="panel panel-primary">
+                           <div id="panel-body" class="panel-body" onload="scrollBottom()" style="height:400px; overflow: auto; " >
+                              
+                                <ul id="ul_chat" class="timeline">
+                               </ul>
+                          </div>
+                    </div>
+  
+                  <div id="panel_footer" class="panel-footer"  >
+                        <div class="input-group" >
+                                <input  type="text" id="message" class="form-control input-sm" placeholder="Type your message here..." />
+                                
+                            <div class="input-group-btn" id="chat-image-upload" style="margin-right: 30px; "   >
+                                <label for="chat-image-input" >
+                                  <img src="images/gallery2.jpg" width="40px" height="29px;"  >
+                                </label>
+                               <input type="file" accept="image/*,capture=camera" id="chat-image-input">
+                           </div>
+                            <div class="input-group-btn" id="chat-file-upload" style="margin-right: 65px; "   >
+                                <label for="chat-file-input" >
+                                  <img src="images/file_open2.jpg" width="40px" height="29px;"  >
+                                </label>
+                               <input type="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" id="chat-file-input">
+                           </div>
+                            <span class="input-group-btn">
+                              <button class="btn btn-warning btn-sm" style="height: 29px; " id="btn-chat">
+                                        Send
+                              </button>
+                           </span>
+                       </div>
+                  </div>
+             </div>
+                    
+                    <!--End Chat Panel Example-->
+
+<script type="text/javascript" src="javascript/notification.js"  ></script>
+<script type="text/javascript" src="javascript/chat1.js" ></script>
+
+            <div class="col-lg-3">
+     <div class="well well-small">
+        <h4>Online</h4>
+           <hr>
+      <ul class="nav nav-tabs nav-stacked">
+   
+    <li><a href="#">Hari</a></li>
+    <li><a href="#">Sai </a></li>
+    <li><a href="#">Guna</a></li>
+    <li><a href="#">hajj</a></li>
+   
+      </ul>
+   </div>
+</div>
+            
+
+</div><!--end row-->
+  
+  <style type="text/css">
+  #chat-image-upload > input{
+    display: none;
+
+  }
+
+    #chat-file-upload > input{
+    display: none;
+
+  }
+  
+</style>
+
+
+  <link href="assets/plugins/timeline/timeline.css" rel="stylesheet" />
+
+  <script type="text/javascript" src="javascript/modal_bootstrap.js"></script>
+ <script type="text/javascript" src="javascript/firebase.js"></script>
+        
+
+
+
+    </div>
+  
+
+
+  <div class="col-lg-16" id="search_page" style="display: none; ">
+
+
+             <div class="row">
+                <!-- Page Header -->
+                 <div class="col-lg-12">
+                    <h1 class="page-header">Find the one you want...</h1>
+                </div>
+            </div>
+  <div class="row">
+
+    <div class="dropdown" style="margin-left: 15%; " >
+      <select name="year" id="year" onchange="myFunction()" class="dropdown-select" >
+       <option >Select Year</option>
+        <option value="2016">2016</option>
+        <option value="1">2015</option>
+        <option value="2">2014</option>
+        <option value="3">2013</option>
+        <option value="4">2012</option>
+        <option value="">2011</option>
+        <option value="1">2010</option>
+        <option value="2">2009</option>
+        <option value="3">2008</option>
+        <option value="4">2007</option>
+      </select>
+    </div>
+
+ <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Rendering engine</th>
+                                            <th>Browser</th>
+                                            <th>Platform(s)</th>
+                                            <th>Engine version</th>
+                                            <th>CSS grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                         <tr class="odd gradeA">
+                                            <td>Trident</td>
+                                            <td>Internet Explorer 5.5</td>
+                                            <td>Win 95+</td>
+                                            <td class="center">5.5</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                          <tr class="odd gradeA">
+                                            <td>Trident</td>
+                                            <td>Internet Explorer 5.5</td>
+                                            <td>Win 95+</td>
+                                            <td class="center">5.5</td>
+                                            <td class="center">A</td>
+                                        </tr>
+  </tbody>
+  </table>
+  </div>
+
+  </div>
+
+
+
+
+ 
+    <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> 
+    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+
+
+ 
+              
+</div>
+
+ <script type="text/javascript" src="javascript/profile.js" ></script>
+
+  <div class="col-lg-16" id="profile_page" style="display: none; ">
+
+<div id="loading_profile" style="vertical-align: center; align-self: center; " >
+  <img src="images/loading1.gif">
+</div>
+
+      <table>
+
+<div id="profile" style="display: none; "  align="center" >
+
+<p id="border">
+
+<section>
+
+
+<span style="font-size: 24px;">
+<strong>Personal Details</strong>
+</span><br><br>
+<h5>
+YEAR ID<tab5><tab1><tab4>
+<input type="text" name="yid" id="yid" readonly="true" required="" style="width: 248px;height: 22px;"><br><br>
+
+
+
+ADMISSION NUMBER<tab4>
+<input type="text" name="admn" id="admn" readonly="true" required="" style="width: 248px;height: 22px;"><br><br>
+NAME<tab5><tab1><tab4><tab4>
+<input type="text" name="name" id="name" required="" style="width: 248px;height: 22px;"><br>
+<br>
+
+GENDER<tab5><tab4><tab1>
+<input type="text" name="gender" id="gender" readonly="true" required="" style="width: 248px;height: 22px;">
+
+<br><br>
+
+DATE OF BIRTH<tab1><tab4>&nbsp&nbsp
+<select style="width: 62px;height: 22px;" name="day" id="day" required="">
+<option value="SELECT" selected >DAY</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+<select style="width: 110px;height: 22px;" name="month" id="month" required="">
+<option value="SELECT" selected >MONTH</option>
+<option value="1">JANUARY</option>
+<option value="2">FEBRUARY</option>
+<option value="3">MARCH</option>
+<option value="4">APRIL</option>
+<option value="5">MAY</option>
+<option value="6">JUNE</option>
+<option value="7">JULY</option>
+<option value="8">AUGUST</option>
+<option value="9">SEPTEMBER</option>
+<option value="10">OCTOBER</option>
+<option value="11">NOVEMBER</option>
+<option value="12">DECEMBER</option>
+</SELECT>
+<select style="width: 70px;height: 22px;" name="year" id="year">
+<option value="SELECT" selected >YEAR</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+</SELECT><br><br>
+
+
+
+
+BRANCH<tab5><tab4>&nbsp<tab4>&nbsp&nbsp
+<select style="width: 248px;height: 22px;" name="branch" id="branch" required="" >
+<option value="select"></option>
+<option value="cse"> COMPUTER SCIENCE & ENGG.  </option>
+<option value="dcse">DUAL CSE  </option>
+<option value="ece">ECE</option>
+<option value="eie">EIE</option>
+<option value="mec"> MECHANICAL ENGG.     </option>
+<option value="civil">CIVIL ENGG.</option>
+<option value="eee">ELECTRICAL ENGG.</option>
+<option value="min">MINING ENGINEERING</option>
+<option value="minmec">MINING MACHINERY</option>
+<option value="petro">     PETROLEUM ENGINEERING   </option>
+<option value="mineral">  MINERAL ENGINEERING   </option>
+<option value="agp">APPLIED GEOPHYSICS</option>
+</select>
+<br><br>
+
+VILLAGE<tab5><tab1>&nbsp&nbsp
+<input type="text" name="vil" id="vil" style="width: 248px;height: 22px;" required=""><br><br>
+
+CITY<tab2>&nbsp&nbsp
+<input type="text" name="city" id="city" style="width: 248px;height: 22px;" required=""><br><br>
+
+DISTRICT<tab5><tab1>&nbsp&nbsp
+<input type="text" name="dis" id="dis" style="width: 248px;height: 22px;" required=""><br><br>
+
+STATE<tab5><tab1><TAB4><tab4>
+<select style="width: 248px;height: 22px;" name="state" id="state" required="">
+<option value="select"selected>SELECT</option>
+<option value="ANDHRA  PRADESH  STATE  - AP">ANDHRA  PRADESH  STATE  - AP</option>
+<option value="TELANGANA  STATE -  TS">TELANGANA  STATE -  TS</option>
+</SELECT>
+<br><br>
+
+PHONE<tab5><tab1><tab4>&nbsp&nbsp
+<input type="text" name="phone" id="phone" style="width: 248px;height: 22px;" maxlength="10" required=""><br><br>
+
+EMAIL<tab5><tab1><tab4>&nbsp&nbsp&nbsp
+<input type="email" name="email" id="email" style="width: 248px;height: 22px;" required=""><br><br><BR>
+
+<taB1>PHOTO UPLOAD  <tab1>&nbsp
+<input type="file" accept="image/*" capture="camera" id="photo" name="photo"><br><br> 
+
+<img id="profile_picture" src="assets/img/user.jpg" height="90px" width="100px"><br><br><br>
+
+
+
+<input type="submit" name="submit" id="submit" class="buttom"style="background: #4b8df9;width: 150px;height: 25px;" value="SAVE"><br>
+
+<br>
+<br>
+
+
+</section>
+</p>
+</div>
+</table>
+
+
+
+
+  </div>
+
+
+
+
+
+  <div id="clubs_page" style="display: none;background-color: #E7B7E1; "><br>
+
+ <div class="row">
+            <div class="col-lg-12">
+               <h1 class="page-header">ISM Clubs</h1>
+           </div>
+        </div> 
+
+
+
+<br>
+     
+       
+
+    <div class="row">
+        
+        <div class="col-lg-4" style="background-color: #E7B7E1; " >
+
+        
+          <div class="thumbnail"  >
+            <div class="blockDtl" align="center" >
+            <h2   >Abhay Dramatics CLub</h2>
+            <a href="#"><img src="images/clubs/abhay_club.jpg" alt="Abhay Dramatics Club"/></a><br><br>
+             <p >Abhay Dramatics Club is the Dramatic club of ISM</p><br>
+           <p> Contact : <br>
+            Hari    9874563210</p><br>
+
+            
+          </div>
+          </div>
+      </div>
+
+         <div class="col-lg-4"  style="background-color: #E7B7E1; " >
+            <div class="thumbnail"   >
+              <div class="blockDtl" align="center">
+              <h2>FotoFreaks</h2>
+              <a href="#"><img src="images/clubs/fotofreaks_club.jpg" alt="Fotofreaks"></a>
+               <p>FotoFreaks is the photography club of ISM</p><br><p>Photography is an art of observation. It has little to do with the things you see, and everything to do with the way you see them.<br>
+              </p>
+             
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Mailer Daemon</h2>
+              <a href="#"><img src="images/clubs/mailerdaemon_club.png" alt="Mailer Daemon"></a><br><br>
+              <p>Manthan is the music club of ISM</p><br><br>
+                         <p>Mailer Daemon is the student run newsletter of Indian School Of Mines, Dhanbad<br>
+           </p>
+              </div>
+            </div>
+         </div>
+   </div>
+   <!--end of row 1 -->
+   <div class="row">
+       <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Manthan</h2>
+              <a href="#"><img src="images/clubs/manthan_club.jpg" alt="Manthan"></a><BR><br><Br>
+               <p>Mailer Daemon is the student run newsletter of Indian School Of Mines, Dhanbad<br>
+          </p> <br><br>
+              
+              </div>
+            </div>
+          </div>
+
+         <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Robotics</h2>
+              <a href="#"><img src="images/clubs/robotics_club.jpg" alt="Robotics"></a><br><br><br>
+              <p>Robotics Club is a student run organization/club which comes under Cyber Society of ISM Dhanbad<br><br><br>
+            </p>            
+              <br>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Art Freaks</h2>
+              <a href="#"><img src="images/clubs/artfreaks_club.png" alt="Art Freaks"></a><br><br>
+              <p>We aim to pioneer a trend and inculcate enthusiasm for art and creativity among the students of ISM Dhanbad.<br>
+            <p> Contact : <br>
+               +91 80510 74540<br>
+               <span style="text-transform: small">artfreaks.ism@gmail.com</span></p><br><br>
+        
+    
+             </p>          
+              </div>
+            </div>
+          </div>
+      </div>    
+   
+   <div class="row">
+      <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Cyber Labs</h2>
+              <a href="#"><img src="images/clubs/cyberlabs_club.jpg" alt="Cyber Labs"></a><br>
+              <p> Cyber Labs is an initiative by the students of ISM 
+     on the footsteps of MIT MediaLabs to learn vital concepts of engineering by working on realtime projects<br>
+           
+           <br><a href="https://www.facebook.com/labscyber/"><img src="images/facebook_link1.png" width="40" height="40"></a>&nbsp&nbsp&nbsp
+          <a href="http://www.cyberlabs.club"><img src="images/website.jpg" width="40" height="40"></a><Br>
+               <span style="text-transform: small">artfreaks.ism@gmail.com</span></p><br><br>
+             </p>          
+              </div>
+            </div>
+          </div>   
+
+        <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>LITC</h2>
+              <a href="#"><img src="images/clubs/litc_club.jpg" alt="LITC"></a><br><br>
+              <p>LITC is the literary club of Indian School of Mines, Dhanbad.<br>
+
+           <br><a href="https://www.facebook.com/litcism/"><img src="images/facebook_link1.png" width="40" height="40"></a>&nbsp&nbsp&nbsp
+           <a href="http://ismliteraryclub.wordpress.com"><img src="images/website.jpg" width="40" height="40"></a>
+               <span style="text-transform: small">ismlitc@gmail.com</span></p><br><br>
+             </p>          
+              </div>
+            </div>
+          </div>
+
+       
+        <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>LITM</h2>
+              <a href="#"><img src="images/clubs/litm_club.jpg" alt="LITM"></a><br><br>
+              <p>LITM is  the official dance club of ISM Dhanbad, LITM- Legends In The Making.
+       Let your feet move and rock to the music on demand..<br>
+
+           <br><a href="https://www.facebook.com/LITM.ISM/"><img src="images/facebook_link1.png" width="40" height="40"></a>&nbsp&nbsp&nbsp
+          <Br>
+               <br><br><br>
+             </p>          
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="row">
+        
+
+            <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>UDAAN</h2>
+              <a href="#"><img src="images/clubs/udaan_club.jpg" alt="Udaan"></a><br><br>
+              <p>Udaan aims to provide students with an exposure about various opportunities and 
+      career paths they can pursue during and after graduation.<br>
+
+           <br><a href="https://www.facebook.com/udaan.ism/"><img src="images/facebook_link1.png" width="40" height="40"></a>&nbsp&nbsp&nbsp
+          <Br>
+               <br><br><br>
+             </p>          
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Fast Forward India</h2>
+              <a href="#"><img src="images/clubs/ffi_club.jpg" alt="Fast Forward India"></a><br><br>
+              <p><br>
+
+           <br><a href="https://www.facebook.com/ffi"><img src="images/facebook_link1.png" width="40" height="40"></a>&nbsp&nbsp&nbsp
+          <Br>
+               <br><br><br>
+             </p>          
+              </div>
+            </div>
+          </div>
+
+
+    <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Kartavya</h2>
+              <a href="#"><img src="images/clubs/kartavya_club.jpg" alt="Kartavya Club"></a><br><br>
+              <p>Kartavya is a voluntry organisation mainly working for the education of poor children living in slums and 
+       villages,and helping their families for better living by its various projects.<br>
+
+           <br><a href="https://www.facebook.com/kartavya.org/"><img src="images/facebook_link1.png" width="40" height="40"></a>&nbsp&nbsp&nbsp
+           <a href="http://www.kartavya.org/"><img src="images/website.jpg" width="40" height="40"></a><Br>
+          <Br>info@kartavya.org
+               <br><br><br>
+             </p>          
+              </div>
+            </div>
+          </div>
+
+
+
+
+      </div>
+        
+       
+       <!-- end of row 2 -->
+
+
+    
+      
+  <div class="span3">
+    <ul class="media-list">
+            <li class="media well well-small">
+            <h4>About  ISM Clubs</h4>
+               <p>Clubs are very important in an Engineering college which allows you develop in all types.<bR>You will get an All round development
+               if you are in clubs.So try to join in a club.
+              </p>
+            </li>
+            
+            
+          </ul>
+    </div>
+
+      <style type="text/css">
+  .col-lg-4{
+    background-color: #E7B7E1;
+     
+  }
+  .thumbnail:hover {-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);}
+   .thumbnail{overflow:hidden;
+    background-color: #DFDDDB; 
+    height: 485px; 
+    }
+
+</style>
+
+
+  </div>
+
+
+
+      <div class="col-lg-16" id="fests_page" style="display: none; "><br>
+
+           
+           <div class="row">
+            <div class="col-lg-12">
+               <h1 class="page-header">ISM Fests</h1>
+           </div>
+        </div> 
+
+
+
+<br>
+     
+       
+
+    <div class="row">
+        
+        <div class="col-lg-4" style="background-color: #E7B7E1; " >
+
+        
+          <div class="thumbnail"  >
+            <div class="blockDtl" align="center" >
+            <h2>Concetto</h2>
+            <a href="#"><img src="images/fests/concetto.png" alt="Concetto Fest"/></a><br><br>
+             <p >Concetto is the technical fest of ISM</p><br>
+           <p> Contact : <br>
+            Hari    9874563210</p><br>
+
+            
+          </div>
+          </div>
+      </div>
+
+         <div class="col-lg-4"  style="background-color: #E7B7E1; " >
+            <div class="thumbnail"   >
+              <div class="blockDtl" align="center">
+              <h2>Srijan</h2>
+              <a href="#"><img src="images/portfolio/2.jpg" alt="Srijan Fest"></a><br><br>
+               <p>Srijan is the cultural fest of ISM
+              </p>
+             
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Basanth</h2>
+              <a href="#"><img src="images/clubs/basanth_fest.png" alt="Basanth Fest"></a><br><br>
+              <p>Basanth is the fest of ISM</p><br><br>
+                         <p><br>
+           </p>
+              </div>
+            </div>
+         </div>
+   </div>
+   <!--end of row 1 -->
+   <div class="row">
+       <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Parakram</h2>
+              <a href="#"><img src="images/clubs/parakram_fest.png" alt="Parakram Fest"></a><BR><br><Br>
+               <p>Parakram is the sports fest of Indian School Of Mines, Dhanbad<br>
+          </p> <br><br>
+              
+              </div>
+            </div>
+          </div>
+
+         
+          
+        </div>
+        
+       
+       <!-- end of row 2 -->
+
+
+    
+      
+  <div class="span3">
+    <ul class="media-list">
+            <li class="media well well-small">
+            <h4>About  ISM Fests</h4>
+               <p>Fests are very important in an Engineering college which allows you develop in all types.<bR>You will get an All round development
+               if you participate in fests.So try to participate in a fest.
+              </p>
+            </li>
+            
+            
+          </ul>
+    </div>
+
+
+
+
+
+
+
+     </div>
+
+
+<div class="col-lg-16" id="startups_page" style="display: none; "><br>
+
+
+
+           <div class="row">
+            <div class="col-lg-12">
+               <h1 class="page-header">ISM Startups</h1>
+           </div>
+        </div> 
+
+
+
+<br>
+     
+       
+
+    <div class="row">
+        
+        <div class="col-lg-4" style="background-color: #E7B7E1; " >
+
+        
+          <div class="thumbnail"  >
+            <div class="blockDtl" align="center" >
+            <h2>ToWaSo</h2>
+            <a href="#"><img src="images/startups/towaso.png" alt="bootstrap business templates"/></a><br><br>
+             <p >ToWaSo is the TOtal Waste Solution</p><br>
+           <p> Contact : <br>
+            Hari    850900473</p><br>
+
+            
+          </div>
+          </div>
+      </div>
+
+              <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Deccan Home</h2>
+              <a href="#"><img src="themes/images/portfolio/3.jpg" alt="bootstrap business templates"></a><br><br>
+              <p>Deccan Home is the startup of our Telugu Seniors started in 2015</p><br><br>
+                         <p><br>
+           </p>
+              </div>
+            </div>
+         </div>
+
+         <div class="col-lg-4"  style="background-color: #E7B7E1; " >
+            <div class="thumbnail"   >
+              <div class="blockDtl" align="center">
+              <h2>Thinkmerit</h2>
+              <a href="#"><img src="images/startups/thinkmerit.gif" alt="bootstrap business templates"></a>
+               <p>Thinkmerit is the online free education
+
+              </p>
+             
+              </div>
+            </div>
+          </div>
+          
+          
+   </div>
+   <!--end of row 1 -->
+   
+        
+       
+       <!-- end of row 2 -->
+
+
+    
+      
+  <div class="span3">
+    <ul class="media-list">
+            <li class="media well well-small">
+            <h4>About  ISM Startups</h4>
+               <p>Startups are very important in an Engineering college which allows you develop in all types.<bR>You will get an All round development
+               if you are in clubs.So try to join in a club.
+              </p>
+            </li>
+            
+            
+          </ul>
+    </div>
+
+
+
+</div>
+
+
+<div class="col-lg-16" id="activities_page" style="display: none; "><br>
+
+
+
+           <div class="row">
+            <div class="col-lg-12">
+               <h1 class="page-header">TelugISM Activities</h1>
+           </div>
+        </div> 
+
+
+
+<br>
+     
+       
+
+    <div class="row">
+        
+        <div class="col-lg-4" style="background-color: #E7B7E1; " >
+
+        
+          <div class="thumbnail"  >
+            <div class="blockDtl" align="center" >
+            <h2>Vinayaka Chavathi</h2>
+            <a href="#"><img src="themes/images/portfolio/4.jpg" alt="bootstrap business templates"/></a><br><br>
+             <p >Vinayaka chavaathi is the festival celebrated by us </p><br>
+           <p> Contact : <br>
+            Hari    850900473</p><br>
+
+            
+          </div>
+          </div>
+      </div>
+
+              <div class="col-lg-4">
+            <div class="thumbnail">
+              <div class="blockDtl" align="center">
+              <h2>Freshers</h2>
+              <a href="#"><img src="themes/images/portfolio/3.jpg" alt="bootstrap business templates"></a><br><br>
+              <p>Freshers is the paarty given by seniors to the newly joined students</p><br><br>
+                         <p><br>
+           </p>
+              </div>
+            </div>
+         </div>
+
+         <div class="col-lg-4"  style="background-color: #E7B7E1; " >
+            <div class="thumbnail"   >
+              <div class="blockDtl" align="center">
+              <h2>Puja</h2>
+              <a href="#"><img src="themes/images/portfolio/5.jpg" alt="bootstrap business templates"></a>
+               <p>Satya Narayana vratham before the end semester that everyone should be happpy
+
+              </p>
+             
+              </div>
+            </div>
+          </div>
+          
+          
+   </div>
+   <!--end of row 1 -->
+   
+        
+       
+       <!-- end of row 2 -->
+
+
+    
+      
+  <div class="span3">
+    <ul class="media-list">
+            <li class="media well well-small">
+            <h4>About  TelugISM Activities</h4>
+               <p>TelugISM Activities are very important in an Engineering college which allows you develop in all types.<bR>You will get an All round development
+               if you are in clubs.So try to join in a club.
+              </p>
+            </li>
+            
+            
+          </ul>
+    </div>
+
+
+
+</div>
+
+
+  <div class="col-lg-16" id="qp_page" style="display: none; ">
+
+
+       <div class="row">
+                <!-- Page Header -->
+                 <div class="col-lg-12">
+                    <h1 class="page-header">Question Papers</h1>
+                </div>
+
+            </div>
+  <div class="row">
+    <div class="dropdown" style="margin-left: 7%;  " >
+      <select name="year" id="year" onchange="year()" class="dropdown-select" >
+        <option value="">Select Year</option>
+        <option value="1">First Year</option>
+        <option value="2">Second Year</option>
+        <option value="3">Third Year</option>
+         <option value="4">Final Year</option>
+      </select>
+    </div>
+
+
+  <div class="dropdown" id="semester_div" style="margin-left: 7%; visibility: hidden; " >
+      <select name="semester" id="semester" onchange="semester()" class="dropdown-select" >
+        <option value="">Select Semester</option>
+       <option value="1">First Semester</option>
+        <option value="2">Second Semester</option>
+      </select>
+    </div>
+
+ <div class="dropdown" id="sub_semester_div" style="margin-left: 7%; visibility: hidden; " >
+      <select name="mid_end" id="mid_end" onchange="sub_semester()" class="dropdown-select" >
+        <option value="">Select Sub Semester</option>
+        <option value="mid">Mid Semester</option>
+        <option value="end">End Semester</option>
+      </select>
+    </div>
+
+  <div class="dropdown" id="subject_div" style="margin-left: 7%; visibility: hidden; " >
+      <select name="subject" id="subject" onchange="myFunction()" class="dropdown-select" >
+        <option value="">Select Subject</option>
+       
+      </select>
+    </div>
+
+
+
+  </div>
+
+<!-- <script type="text/javascript" src="javascript/search.js"></script> -->
+<script type="text/javascript" src="javascript/qp.js" ></script>
+
+  </div>
+
+
+
+    <div class="col-lg-16" id="placements_page" style="display: none; "><br>
+
+ <div class="row">
+                <!-- Page Header -->
+                 <div class="col-lg-12">
+                    <h1 class="page-header">Placements</h1>
+                </div>
+
+            </div>
+
+  <embed id="placement_embed" style="height: 1000px; " width="100%" ></embed>
+
+
+
+
+
+
+    </div>
+
+
+  <div class="col-lg-16" id="ism_route_map_page" style="display: none; "><br>
+
+      <div class="row">
+                <!-- Page Header -->
+                 <div class="col-lg-12">
+                    <h1 class="page-header">ISM Route Map</h1>
+                </div>
+
+       </div>
+    
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7300.2944919763395!2d86.43518023223258!3d23.813362479363935!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x122cb1d133a89995!2sIndian+School+of+Mines!5e0!3m2!1sen!2sin!4v1469375379969" style="width: 100%;height:750px; " frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+  
+
+
+
+               </div> </div> <!-- end page-wrapper --></div>
+    <!-- end wrapper -->
+<style type="text/css">
+    
+    .non_selected_btn{
+        background-color: green;
+    }
+
+    .selected_btn {
+        background-color: orange;
+
+    }
+</style>
+
+  
+   <script type="text/javascript" src="javascript/home.js">
+      
+   </script>
+
+
+
+
+
+    <!-- Core Scripts - Include with every page -->
+   
+    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets/plugins/pace/pace.js"></script>
+    <script src="assets/scripts/siminta.js"></script>
+    <!-- Page-Level Plugin Scripts-->
+    <script src="assets/scripts/dashboard-demo.js"></script>
+
+
+</body>
+
+</html>

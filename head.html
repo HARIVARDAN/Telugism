@@ -1,0 +1,84 @@
+<html>
+<head>
+<title></title>
+</head>
+
+<body  style="border: none;">
+
+<table width="100%">
+<tr>
+<td width="20%">
+<img src="images/hari.jpg" style="; margin-left: 28%" height="95" width="105" align="middle" align="center">
+<br>
+</td>
+<td width="65%">
+
+
+
+<span style="color:green; font-size: 30px; text-align: center;padding-left: 250px;"  >
+<strong>TELUG<span style="color:brown">ISM  </span>  WELCOMES YOU</span></strong>
+</span>
+
+<br>
+</td>
+
+
+<td width="20%">
+
+<h3> Hari Vardanachari</h3>
+<input type="button" id="logout_bt" style="width: 100px;height: 25px;  background: #9085D4;"  value=" Log out   " >
+</td>
+
+</tr>
+</table>
+
+  <div class="modal fade" id="logout" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header"> 
+          
+          <span class="modal-title"><b>Thank You...You ara successfully logged out</b></span>
+          <button type="button" id="close" class="close" data-dismiss="modal">ok</button> 
+        </div>
+        <!-- <div class="modal-body">
+          <p style="font-size: 14px;">Your are successfully logged out</p>
+        </div> -->
+        
+      </div>
+      
+    </div>
+  </div>
+
+<link rel="stylesheet" type="text/css" href="css/head.css">
+
+<style type="text/css">
+	
+</style>
+
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/modal_bootstrap.js"></script>
+<script type="text/javascript" src="javascript/firebase.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $("#logout_bt").click(function(){
+    	 $("#logout").modal({backdrop: false});
+    	 
+        
+    });
+
+    $("#close").click(function(){
+    	 
+    	close();
+    	 window.open("index.html")
+        
+    });
+});
+
+</script>
+
+</body>
+</html>

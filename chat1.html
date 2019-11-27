@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelugISM</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="assets/plugins/timeline/timeline.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+      <link href="assets/css/main-style.css" rel="stylesheet" />
+   
+  <link rel="stylesheet" type="text/css" href="css/modal_css.css">
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/modal_bootstrap.js"></script>
+<script type="text/javascript" src="javascript/firebase.js"></script>
+
+   </head>
+
+
+<style type="text/css">
+  body{
+      padding:0;
+ 
+  }
+</style>
+<script type="text/javascript">
+  
+</script>
+
+
+<body>
+
+
+  
+   
+    
+        <div id="page-wrapper" style="margin-left: 0px; " >
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">Chat</h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+
+            <div class="row">
+                <!-- Welcome -->
+                  <div id="start_chart" class="col-lg-9">
+                    <div  id="panel_chat" class="panel panel-primary">
+                        <div id="panel-body" class="panel-body" onload="scrollBottom()" style="height:575px; overflow: auto; " >
+                           <div align="center">
+                          <button id="load_messages_btn" >Load Earlier Messages</button>
+                             </div>
+                                <ul id="ul_chat" class="timeline">
+                               
+                               
+                                  
+                          
+
+                          </ul>
+                          </div>
+                    </div>
+  
+              <div id="panel_footer" class="panel-footer"  >
+                            <div class="input-group" >
+                                <input  type="text" id="message" class="form-control input-sm" placeholder="Type your message here..." />
+                                
+                                  <div class="input-group-btn" id="image-upload" style="margin-right: 30px; "   >
+                            <label for="image-input" >
+                              <img src="images/photo1.jpg" width="40px" height="29px;"  >
+                            </label>
+                            <input type="file" accept="image/*,capture=camera" id="image-input">
+                           
+
+                            </div>
+                                
+                                     <span class="input-group-btn">
+                                    <button class="btn btn-warning btn-sm" style="height: 29px; " id="btn-chat">
+                                        Send
+                                    </button>
+                      
+
+                           
+                           
+                                </span>
+                       
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--End Chat Panel Example-->
+
+
+            <div class="col-lg-3">
+     <div class="well well-small">
+<h4>Online</h4>
+<hr>
+<ul class="nav nav-tabs nav-stacked">
+   
+    <li><a href="#">Hari</a></li>
+    <li><a href="#">Sai </a></li>
+    <li><a href="#">Guna</a></li>
+    <li><a href="#">hajj</a></li>
+   
+  </ul>
+</div>
+
+
+
+                </div>
+            
+
+</div>
+         
+
+
+       
+        <!-- end page-wrapper -->
+
+    </div>
+    <!-- end wrapper -->
+
+
+
+
+
+
+<style type="text/css">
+  #image-upload > input{
+    display: none;
+
+  }
+  
+</style>
+
+
+
+
+
+<script type="text/javascript">
+ var myDataRef = new Firebase("https://panchayat.firebaseio.com/");
+
+    $(window).load(function(){
+   
+ console.log("chari");
+ myDataRef.orderByKey().limitToLast(8).on('child_added', function(snapshot) {
+        var messages=snapshot.val();
+         
+        displayChatMessage(messages.name, messages.text,messages.date,messages.profile_photo,messages.image,messages.audio);
+      });
+      
+
+   
+});
+  
+  var early_load_messages=1;
+    $('#load_messages_btn').click(function(){
+   myDataRef.orderByKey().limitToLast(28).on('child_added', function(snapshot) {
+      console.log(snapshot.key);
+        console.log(snapshot.val());
+         var message=snapshot.val();
+
+        displayChatMessage(message.name, message.text,message.date,message.profile_photo,message.image,message.audio);
+             early_load_messages++;
+             if(early_load_messages==20){
+              break;
+             }
+      });
+    
+
+   
+ });
+
+
+var load_messages_number=1;
+          function displayChatMessage(name,text,dates,photo,image,audio) {
+          var name1 = sessionStorage.getItem('name');
+         
+           if(name1==name){
+
+            if(text!=""){
+            $('#ul_chat').append('<li class="timeline-inverted"><div class="timeline-badge"><img src="'+photo+'" download="chari.jpg" style="width:51px;height:51px; border-radius:20px;" ></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">'+name+'</h4><p><small class="text-muted"><i class="fa fa-time"></i>'+dates+'</small></p></div><div class="timeline-body"><p>'+text+'</p></div></div></li>');
+
+                 }
+             
+             else if(image!=""){
+              $('#ul_chat').append('<li class="timeline-inverted"><div class="timeline-badge"><img src="'+photo+'" style="width:51px;height:51px; border-radius:20px;"  ></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">'+name+'</h4><p><small class="text-muted"><i class="fa fa-time"></i>'+dates+'</small></p></div><div class="timeline-body"><img src="'+image+'" style="max-width:100px;max-height:100px;" ><br><a href="'+image+'"download="TelugISM.jpg" width="200px" height="200px" >Download image</a></div></div></li>');
+
+
+             }
+
+            
+             
+            }
+          else{
+
+          
+          if(image!=""){
+              $('#ul_chat').append('<li><div class="timeline-badge"><img src="'+photo+'"style="width:51px;height:51px; border-radius:20px;"  ></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">'+name+'</h4><p><small class="text-muted"><i class="fa fa-time"></i>'+dates+'</small></p></div><div class="timeline-body"><img src="'+image+'" download="chari.jpg" style="max-width:100px;max-height:100px;" ><a href="'+image+'"download="TelugISM.jpg" width="200px" height="200px" >download image</a></div></div></li>');
+
+
+             }
+
+             
+
+             else if(text!=""){
+            $('#ul_chat').append('<li><div class="timeline-badge"><img src="'+photo+'"style="width:51px;height:51px; border-radius:20px;"  ></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title">'+name+'</h4><p><small class="text-muted"><i class="fa fa-time"></i>'+dates+'</small></p></div><div class="timeline-body"><p>'+text+'</p></div></div></li>');
+
+                 }
+          }
+load_messages_number++;
+  if(load_messages_number==8){
+  $('#loading').modal('hide');
+}
+
+
+      }
+
+
+
+var name = sessionStorage.getItem('name');
+              
+var profile_photo = sessionStorage.getItem('profile_photo');
+
+
+$('#btn-chat').click(function(){
+             
+               var times= new Date();
+               var image="";
+                var audio="";
+             var times_3=times.toString();
+     
+          var text = $('#message').val();
+          myDataRef.push({name: name, text: text,profile_photo:profile_photo,date:times_3,image:image,audio:audio});
+          $('#message').val('');
+           $('#panel-body')[0].scrollTop = $('#panel-body')[0].scrollHeight;
+
+         
+
+      });
+        
+                
+ 
+          
+          
+
+      function scrollBottom(){
+
+$('#panel-body').scrollTop($('#panel-body')[0].scrollHeight);
+}
+         $(document).ready(function() {
+        $("#image-input").on("change", function(event) {
+          var input = event.target;
+           reader = new FileReader();
+          reader.onload = function(){
+            dataURL = reader.result;
+
+             
+               var times_2= (new Date()).toString();
+               console.log(times_2);
+               var image=dataURL;
+               var video="";
+               var audio=""
+            
+          var text = $('#message').val();
+          myDataRef.push({name: name, text: text,profile_photo:profile_photo,date:times_2,image:image,audio:audio,video:video});
+                  
+           
+          };
+          reader.readAsDataURL(input.files[0]);
+        });
+
+
+      });
+
+
+</script>
+
+
+<div class="modal fade" id="loading" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <p  style="font-size: 16px; text-align: center;">loading..........</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="assets/plugins/jquery-1.10.2.js"></script>
+    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets/plugins/pace/pace.js"></script>
+    <script src="assets/scripts/siminta.js"></script>
+    <!-- Page-Level Plugin Scripts-->
+
+    <script src="assets/scripts/dashboard-demo.js"></script>
+
+</body>
+
+</html>

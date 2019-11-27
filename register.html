@@ -1,0 +1,555 @@
+<html>
+<head><title>REGISTRATION</title></head>
+<link rel="stylesheet"  href="css/register.css"type="text/css">
+<script type="text/javascript" src="javascript/jquery.js"></script>
+
+<script type="text/javascript" src="javascript/modal_bootstrap.js"></script>
+
+
+<body>
+
+<div id="body1">
+
+
+<br>
+<h1><strong>TELUG<span style="color:orange">ISM  </span></strong></h1>
+<br>
+
+
+<div style="align-content: center;">
+<p id="head" align="center" ><br>
+<input type="button" id="home_bt"style="width: 80px;height: 30px;  background: #9085D4;" name="home" value="  HOME  " size="60"></a>
+<input type="button" id="contact_bt" style="width: 80px;height: 30px;  background: #9085D4;"  value="CONTACT" ></a>
+<input type="button" id="about_bt" value="  ABOUT " style="width: 80px; height: 30px;  background: #9085D4;" ></a>
+</p>
+</div>
+<table>
+
+<div   align="center" >
+
+<p id="border">
+
+<section>
+
+
+<span style="font-size: 24px;">
+<strong>Personal Details</strong>
+</span><br><br>
+<h5>
+YEAR ID<tab5><tab1><tab4>
+<input type="text" name="yid" id="yid" required="" style="width: 248px;height: 22px;"><br><br>
+
+
+
+ADMISSION NUMBER<tab4>
+<input type="text" name="admn" id="admn" required="" style="width: 248px;height: 22px;"><br><br>
+NAME<tab5><tab1><tab4><tab4>
+<input type="text" name="name" id="name" required="" style="width: 248px;height: 22px;"><br>
+<br>
+
+GENDER<tab5>&nbsp&nbsp
+<input type="radio" style="width: 28px;margin-left: 30px; " name="gender"   id="male" onclick="gender();" VALUE="MALE">MALE  
+<input type="radio" style="width: 28px;" name="gender" id="female" onclick="gender();" VALUE="FEMALE">FEMALE
+<input type="radio" style="width: 28px;" name="gender" id="trans" onclick="gender();" VALUE="TARNS">TRANS
+
+<br><br>
+
+DATE OF BIRTH<tab1><tab4>&nbsp&nbsp
+<select style="width: 62px;height: 22px;" name="day" id="day" required="">
+<option value="SELECT" selected >DAY</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+<select style="width: 110px;height: 22px;" name="month" id="month" required="">
+<option value="SELECT" selected >MONTH</option>
+<option value="1">JANUARY</option>
+<option value="2">FEBRUARY</option>
+<option value="3">MARCH</option>
+<option value="4">APRIL</option>
+<option value="5">MAY</option>
+<option value="6">JUNE</option>
+<option value="7">JULY</option>
+<option value="8">AUGUST</option>
+<option value="9">SEPTEMBER</option>
+<option value="10">OCTOBER</option>
+<option value="11">NOVEMBER</option>
+<option value="12">DECEMBER</option>
+</SELECT>
+<select style="width: 70px;height: 22px;" name="year" id="year">
+<option value="SELECT" selected >YEAR</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+</SELECT><br><br>
+
+
+
+
+BRANCH<tab5><tab4>&nbsp<tab4>&nbsp&nbsp
+<select style="width: 248px;height: 22px;" name="branch" id="branch" required="" >
+<option value="select"></option>
+<option value="cse"> COMPUTER SCIENCE & ENGG.  </option>
+<option value="dcse">DUAL CSE  </option>
+<option value="ece">ECE</option>
+<option value="eie">EIE</option>
+<option value="mec"> MECHANICAL ENGG.     </option>
+<option value="civil">CIVIL ENGG.</option>
+<option value="eee">ELECTRICAL ENGG.</option>
+<option value="min">MINING ENGINEERING</option>
+<option value="minmec">MINING MACHINERY</option>
+<option value="petro">     PETROLEUM ENGINEERING   </option>
+<option value="mineral">  MINERAL ENGINEERING   </option>
+<option value="agp">APPLIED GEOPHYSICS</option>
+</select>
+<br><br>
+
+VILLAGE<tab5><tab1>&nbsp&nbsp
+<input type="text" name="vil" id="vil" style="width: 248px;height: 22px;" required=""><br><br>
+
+CITY<tab2>&nbsp&nbsp
+<input type="text" name="city" id="city" style="width: 248px;height: 22px;" required=""><br><br>
+
+DISTRICT<tab5><tab1>&nbsp&nbsp
+<input type="text" name="dis" id="dis" style="width: 248px;height: 22px;" required=""><br><br>
+
+STATE<tab5><tab1><TAB4><tab4>
+<select style="width: 248px;height: 22px;" name="state" id="state" required="">
+<option value="select"selected>SELECT</option>
+<option value="ANDHRA  PRADESH  STATE  - AP">ANDHRA  PRADESH  STATE  - AP</option>
+<option value="TELANGANA  STATE -  TS">TELANGANA  STATE -  TS</option>
+</SELECT>
+<br><br>
+
+PHONE<tab5><tab1><tab4>&nbsp&nbsp
+<input type="text" name="phone" id="phone" style="width: 248px;height: 22px;" maxlength="10" required=""><br><br>
+
+EMAIL<tab5><tab1><tab4>&nbsp&nbsp&nbsp
+<input type="email" name="email" id="email" style="width: 248px;height: 22px;" required=""><br><br><BR>
+
+<taB1>PHOTO UPLOAD  <tab1>&nbsp
+<input type="file" accept="image/*" capture="camera" id="photo" name="photo"><br><br> 
+
+<img src="assets/img/user.jpg" height="90px" width="100px"><br><br>
+<span style="font-size: 22px;">
+<strong>LogIn Details</strong></span><br><br>
+USER NAME<tab5><tab1>
+<input type="text" name="user" id="user"  style="text-transform: lowercase;width: 248px;height: 22px;"><br><br>
+PASSWORD<tab5><tab1>&nbsp
+<input type="password" name="pwd" id="pwd" style="width: 248px;height: 22px;" required=""><br><br>
+CONFIRM PASSWORD<tab4>&nbsp&nbsp
+<input type="password" name="cpwd" id="cpwd" style="width: 248px;height: 22px;" required=""><br><br><br>
+
+<input type="submit" name="submit" id="submit" class="buttom"style="background: #4b8df9;width: 150px;height: 25px;" value="SUBMIT"><br>
+
+<br>
+<br>
+
+
+</section>
+</p>
+</div>
+</table>
+<br>
+<br>
+
+</div>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script> -->
+<script type="text/javascript" src="javascript/firebase2.js"></script>
+<script>
+  // Initialize Firebase
+
+  
+
+
+  var config = {
+    apiKey: "AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M",
+    authDomain: "telugismregister.firebaseapp.com",
+    databaseURL: "https://telugismregister.firebaseio.com",
+    storageBucket: "telugismregister.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+
+
+<script type="text/javascript">
+	
+   var dataURL="";
+   var reader;
+   var m,a;
+
+  var key="firebase:authUser:AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M:[DEFAULT]";
+
+	$(document).ready(function() {
+				$("#photo").on("change", function(event) {
+					var input = event.target;
+					 reader = new FileReader();
+					reader.onload = function(){
+						dataURL = reader.result;
+                  
+						$("#photo").parent().find("img").attr("src", dataURL);
+					};
+					reader.readAsDataURL(input.files[0]);
+				});
+			});
+
+
+
+
+
+
+
+
+    
+
+
+
+   /*  var ref = new Firebase('https://telugismregister.firebaseio.com/');*/
+      var genders="";
+     
+      
+    function gender() {
+    if (document.getElementById('male').checked){
+    	 genders="MALE";}
+    else if(document.getElementById('female').checked)
+    	genders="FEMALE";
+    else if(document.getElementById('trans').checked)
+    	genders="TRANS";
+}
+
+
+
+
+
+      $('#submit').click(function() {
+
+     $("#loading").modal({backdrop:"static"});
+
+          var yid = $('#yid').val();
+          var admn=$('#admn').val();
+          var name = $('#name').val();
+          var branch=$('#branch').val();
+         
+        
+          var day=$('#day').val();
+          var month=$('#month').val();
+          var year=$('#year').val();
+          var phone=$('#phone').val();
+          var email = $('#email').val();
+          var vil=$('#vil').val();
+          var city=$('#city').val();
+          var dis=$('#dis').val();
+          var state=$('#state').val();
+
+          var user=$('#user').val();
+          var pwd = $('#pwd').val();
+          var cpwd = $('#cpwd').val();
+         
+         var user_email=user.concat("@gmail.com");
+         var dob=day+"/"+month+"/"+year; 
+        console.log(user_email);
+      
+     var errorcode="";
+     var uids="";
+   
+
+ 
+  if(yid!="" && admn!="" && name!="" && branch!="" && day!="" &&  month!="" &&  year!="" && phone!="" && email!="" && vil!="" && city!="" && dis!="" && state!="" && user!="" && pwd!="" &&cpwd!=""){
+
+     if(pwd==cpwd)
+     {
+
+ 
+  /*creating user*/
+
+
+   firebase.auth().createUserWithEmailAndPassword(user_email, pwd).then(function(user){
+    console.log(user);
+   uids=(user.uid).toString();
+
+   console.log(uids);
+    user.updateProfile({
+  displayName: name,
+  photoURL: dataURL
+});
+
+  setTimeout(function(){
+  firebase.database().ref(uids).set({uid:uids,yid:yid,admission_no:admn,branch:branch,gender:genders,day:day,month:month,year:year,dod:dob,name:name,phone:phone,village:vil,city:city,district:dis,state:state,email:email,user:user,password:pwd,photos:dataURL}).then(function(){
+
+    console.log("success");
+    
+    $('#loading').modal('hide');
+  alert("Successfully created Account....    Please login to continue ");
+       
+       location.href="login.html";
+  
+
+  // Update successful.
+
+   });
+},6000);
+
+},
+function(error) {
+
+    
+       errorcode=error.code;
+          
+          document.getElementById('loading').style.display='none';
+          $('#loading').modal('hide');
+
+            $('#error_message_text').text(errorcode);
+           $("#error_message").modal({backdrop: true}); 
+
+       
+        
+     });
+
+
+
+
+ 
+    
+ 
+
+
+
+
+  
+
+     /* creating user completed */     
+  }   
+
+
+
+   
+   
+ else {
+         $("#check_pwd").modal({backdrop: true});   
+          $('#loading').modal('hide');
+}
+
+}
+
+else{
+   $("#fill_details").modal({backdrop: true});
+   $('#loading').modal('hide');
+  }
+
+
+
+});  
+
+
+     $(window).unload(function(){
+   localStorage.removeItem(key);
+
+});
+         
+
+
+
+
+
+
+
+</script>
+
+
+
+
+<div class="modal fade" id="loading" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <p  style="font-size: 16px; text-align: center;">Creating account..........</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+<div class="modal fade" id="error_message" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <p id="error_message_text" style="font-size: 16px; text-align: center;"></p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+	
+
+
+
+<div class="modal fade" id="contact" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contact us</h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 16px;">K.Hari Vardanachari<br>IIT-ISM Dhanbad<br>Dhanbad<br>Jharkhand<br>826004<br>Ph:00000000</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="about" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contact us</h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 16px;">TELUG<B>ISM</B> is the site of Telugu students <BR> studying in IIT-ISM</p>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="fill_details" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Caution</h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 16px;">Please fill all the details</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+    <div class="modal fade" id="check_pwd" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Caution</h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 16px;">Passwords are not matching..<br>Please check the passwords</p>
+        </div>
+        
+      
+    </div>
+  </div>
+
+
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $("#home_bt").click(function(){
+    	location.href="index3.html";
+        
+    });
+    $("#contact_bt").click(function(){
+       $("#contact").modal({backdrop: true});
+    });
+    $("#about_bt").click(function(){
+        $("#about").modal({backdrop: true});
+    });
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+{
+"uid":"Wr37e7FZ9iYC0SgGFX1ze47KJRo1",
+"displayName":null,
+"photoURL":null,
+"email":"chari987963@gmail.com",
+"emailVerified":false,"isAnonymous":false,
+"providerData":[{"uid":"chari987963@gmail.com","displayName":null,"photoURL":null,"email":"chari987963@gmail.com","providerId":"password"}],"apiKey":"AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M","appName":"[DEFAULT]","authDomain":"telugismregister.firebaseapp.com",
+"stsTokenManager":{"apiKey":"AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M","refreshToken":"ANflqpGLxSQmbNhV26dFupkbuc1huMowdi2EoPOK7EM9ZmJz8oFmat0ICvabYIPGREfRaF6bctc6D1Ib-g8NFk_R6zUSidEo1AwZyODUNP3_bs3MMK5vHPjHZr8MbieHJb2iJPHC6ytTJm_C0oCfN5LYnfmUflFUfXQhT_IrLhet204i56-9pB_0-pgwZtZKgm929450bB4QKLuB399NZES3_rfENlCjJw","accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImIyOWEyMjgwODkxNzRjMzljYTZkNzZhNzY3ZGNkZTg1OWNiMTVkOGIifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGVsdWdpc21yZWdpc3RlciIsImF1ZCI6InRlbHVnaXNtcmVnaXN0ZXIiLCJhdXRoX3RpbWUiOjE0NjY5NTc5MTgsInVzZXJfaWQiOiJXcjM3ZTdGWjlpWUMwU2dHRlgxemU0N0tKUm8xIiwic3ViIjoiV3IzN2U3Rlo5aVlDMFNnR0ZYMXplNDdLSlJvMSIsImlhdCI6MTQ2Njk1NzkxOCwiZXhwIjoxNDY2OTYxNTE4LCJlbWFpbCI6ImNoYXJpOTg3OTYzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJwYXNzd29yZCI6WyJjaGFyaTk4Nzk2M0BnbWFpbC5jb20iXSwiZW1haWwiOlsiY2hhcmk5ODc5NjNAZ21haWwuY29tIl19fX0.Dh53QkNX_V_ESh6SUrKv4WycEQEb1VOQtgDNIKmXs9wHCSO0rQ0cKYIseOuReW6douqfY5pgjnNLPUu4jOVFiZydW1FpHXQS_gdKJ0eCd17hGAfWQSlVbFrfGlfa1GQ59zEX4U4gMv3s7Mcp78w3AL_4RiQr8Eo1r8axg7fqKvxH6Z0bx9i8QZbXPBui5bkBANp9ojDQDLvx0d0VFWJ4xzQhiF9_2r9fZPcHmT-b8_42RoPBaG3vbBj_Ym-KJmfvDlzeX5qbBxxmlMP7mB5Uu9QCx8GaOSsTXH8b5XS0fAtWp2t2cM7RaqYxI0Wpyjh_ot3YPd5XTlboKAEySckd1A","expirationTime":1466961515983},"redirectEventId":null}

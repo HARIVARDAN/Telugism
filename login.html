@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Telugism-Login</title>
+    
+    
+    
+  <link rel="stylesheet"  href="css/register.css"type="text/css">
+<script type="text/javascript" src="javascript/jquery.js"></script>
+
+<script type="text/javascript" src="javascript/firebase2.js"></script>
+<script type="text/javascript">
+  var config = {
+    apiKey: "AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M",
+    authDomain: "telugismregister.firebaseapp.com",
+    databaseURL: "https://telugismregister.firebaseio.com",
+    storageBucket: "telugismregister.appspot.com",
+  };
+  firebase.initializeApp(config);
+
+  </script>
+    
+    <script type="text/javascript">
+
+
+   firebase.auth().onAuthStateChanged(function(user) {
+       if (user) {
+      window.location.replace("home_sample.html");
+    // User is signed in.
+  } 
+});
+
+    $('#home').click(function() {
+   location.href="index3.html";
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="javascript/modal_bootstrap.js"></script>
+  </head>
+
+  <body background="images/photo1.jpg" style="background-image: 'images/photo1.jpg'; " >
+
+    <div class="container">
+
+  <div class="login">
+   <a href="index3.html" class="lnk">
+   <h1 style="color: black; text-align: center; font-size: 35px; " class="login-heading"><strong>Telug<span style="color:orange ">ISM         </span></strong></h1>
+   </a>
+  	<h2 style="text-align: center; " class="login-heading">
+
+      <strong>Welcome.</strong> Please login</h2>
+      <h3 style="font-size: 16px; " >
+        <input type="text" id="user" name="user" tabindex="1"  placeholder="Username" required="required" class="input-txt" />
+          <input type="password" id="password" tabindex="2" name="password" placeholder="Password" required="required" class="input-txt" /></h3>
+          <div class="login-footer">
+           <input type="submit" id="submit" style="background-color: #14B0F3; cursor: pointer; " tabindex="3" class="btn btn--right" value="Sign in">
+          <h2 style="font-size: 20px; " >
+             <a href="#" class="lnk">
+              <span class="icon icon--min">ಠ╭╮ಠ</span> 
+               forgotten something
+            </a> 
+                    &nbsp&nbsp
+            
+            <a  href="register.html"><span style="color: #5D92BA; ">
+            Sign Up</span>  </a>
+             </h2>
+             <br>
+      
+          </div>
+      
+  </div>
+</div>
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="css/login/reset.css">
+  <link rel="stylesheet" href="css/login/style.css">
+
+    
+     
+
+   <script type="text/javascript">
+  
+
+    $('#submit').click(function() {
+
+      $("#loading").modal({backdrop:"static"});
+    
+          var user = $('#user').val();
+          var password=$('#password').val();
+          var email= user.concat("@gmail.com");
+        
+        console.log(email);
+       
+
+
+
+        firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
+
+          window.location.replace("home_sample.html");
+        },function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  
+  document.getElementById('loading').style.display='none';
+  
+
+            $('#error_message_text').text(errorMessage);
+           $("#error_message").modal({backdrop: true}); 
+         $('#loading').modal('hide');
+
+}); 
+ 
+  });
+
+
+   
+
+</script>
+
+<div class="modal fade" id="loading" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <p  style="font-size: 16px; text-align: center;">Signing In..........</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+    
+    <div class="modal fade" id="error_message" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <p id="error_message_text" style="font-size: 16px; text-align: center;"></p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+    
+  </body>
+</html>

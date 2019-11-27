@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelugISM</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
+  <script type="text/javascript" src="javascript/jquery.js"></script>
+
+
+   <script type="text/javascript" src="javascript/firebase2.js"></script>
+<script>
+  // Initialize Firebase
+
+
+  var config = {
+    apiKey: "AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M",
+    authDomain: "telugismregister.firebaseapp.com",
+    databaseURL: "https://telugismregister.firebaseio.com",
+    storageBucket: "telugismregister.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script type="text/javascript">
+
+var uid="";
+
+
+ var key="firebase:authUser:AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M:[DEFAULT]";
+    console.log("charset");
+
+
+    a=localStorage.getItem(key);
+    m = JSON.parse(a);
+
+     uid=m.uid;
+
+  
+
+firebase.database().ref(uid + '/name').on('value', function(snapshot) {
+  console.log(snapshot.val());
+  $('#user_name').text(snapshot.val());
+});
+
+firebase.database().ref(uid + '/photos').on('value', function(snapshot) {
+ 
+ $("#user_image").attr("src",snapshot.val());
+});
+
+
+
+
+$('#logout').click(function() {
+    console.log("haRI");
+
+var key1="firebase:authUser:AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M:[DEFAULT]";
+
+
+localStorage.removeItem(key1);
+
+location.href="index3.html";
+
+});
+
+</script>
+
+   </head>
+<body>
+
+<a href="#" class="btn"  style="position: fixed; bottom: 38px; right: 10px; background-color: #f1f1f1" id="toTop"> <i class="icon-arrow-up"></i> Go to top</a>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home3.html">
+                   <h2 style="color: #f1f1f1">TelugISM</h2>
+
+                </a>
+
+               
+               
+            </div>
+
+              <div class="user-info" style="align-content: center; padding-left: 30%; ">
+                               <div id="user_name" style="font-size: 25px; text-align: center; ">User Name</div>
+                </div>
+
+            <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle"  href="home3.html">
+                        <span class="top-label label label-danger"></span><i class="fa fa-envelope fa-3x"></i>
+                    </a>
+                    <!-- dropdown-messages -->
+                   
+                    <!-- end dropdown-messages -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle"  href="chat.html">
+                        <span class="top-label label label-success">4</span>  <i class="fa fa-tasks fa-3x"></i>
+                    </a>
+                    <!-- dropdown tasks -->
+                    
+                    <!-- end dropdown-tasks -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle"  href="search.html">
+                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
+                    </a>
+                    <!-- dropdown alerts-->
+                 
+                    <!-- end dropdown-alerts -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><button id="logout"><i class="fa fa-sign-out fa-fw"></i>Logout</button>
+                        </li>
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+
+            <li>
+                
+                 <!-- user image section-->
+                        
+                           
+                                <img id="user_image" style="max-width: 100px; max-height: 100px;"  src="assets/img/user.jpg" alt="">
+                        
+                            
+                       
+                        <!--end user image section-->
+
+            </li>
+
+
+
+
+                <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+
+                
+                 <br>
+
+        </nav>
+        <!-- end navbar top -->
+
+        <!-- navbar side -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+        <br>
+            <!-- sidebar-collapse -->
+            <div class="sidebar-collapse">
+                <!-- side-menu -->
+                <ul class="nav" id="side-menu">
+                  
+                    <li class="sidebar-search">
+                        <!-- search section-->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!--end search section-->
+                    </li>
+                    <li class="selected">
+                        <a href="home3.html"><i class="fa fa-dashboard fa-fw"></i>Notifications</a>
+                    </li>
+                   
+                     <li>
+                        <a href="chat.html"><i class="fa fa-comment fa-fw"></i></i>Chat</a>
+                    </li>
+                    <li>
+                        <a href="tables.html"><i class="fa fa-search"></i>&nbsp Search</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>ISM<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li >
+                                <a href="clubs.html">ISM Clubs</a>
+                            </li>
+                            <li>
+                                <a href="fests.html">ISM Fests</a>
+                            </li>
+                            <li>
+                                <a href="notifications.html">ISM startups</a>
+                            </li>
+                            <li>
+                                <a href="activities.html">Activities</a>
+                            </li>
+                            
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        
+                        <!-- second-level-items -->
+                    </li>
+                </ul>
+                <!-- end side-menu -->
+            </div>
+            <!-- end sidebar-collapse -->
+        </nav>
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+        <div id="page-wrapper"><br>
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">Notifications</h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+
+ <div class="row">
+                <!-- Welcome -->
+
+  <div class="col-lg-8">
+
+
+
+ <div class="thumbnail">
+ <h3><a href="#" title="my web solutions">Low Cost Mobile Web Design Price List (+ 10% to 20% OFF)</a></h3>
+  <p class="meta">Added by 
+    <a href="#" title="Posts by admin">admin</a> on <a href="#">November 14th, 2012</a>, filed under 
+    <a href="#" title="View all posts in Category 3">Design </a>
+  </p>
+ <a href="blog_details.html"  style="display:block; background:url(themes/images/blog/4.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+<p>This affordable Mobile Web Design Package offers up to 20% Discount for our new clients. We believ our clients are 100% satisfied with us and our services packages. 
+We do it all for you from start to finish. When the mobile website is completed, you can visit your website from handheld device(ie. Mobile, i-pad etc).
+Our website prices below are complete - there are NO HIDDEN EXTRAS! </p>
+
+<p>This affordable Mobile Web Design Package offers up to 20% Discount for our new clients. We believ our clients are 100% satisfied with us and our services packages. 
+We do it all for you from start to finish. When the mobile website is completed, you can visit your website from handheld device(ie. Mobile, i-pad etc).
+Our website prices below are complete - there are NO HIDDEN EXTRAS! [<a href="blog_details">More Details</a>]</p>
+
+ <div class="btn-toolbar">
+  <div class="btn-group toolTipgroup">
+    <a class="btn" href="#" data-placement="left" data-original-title="send email"><i class="icon-envelope"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="do you like?"><i class="icon-thumbs-up"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="dont like?"><i class="icon-thumbs-down"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="share"><i class="icon-link"></i></a>
+    <a class="btn" href="#" data-placement="right" data-original-title="print"><i class="icon-print"></i></a>
+  </div>
+</div>
+
+ <p>
+  <a href="#" title="Comment on Cras in odio nisi">2 Comments</a> | 
+  <a href="#">Add Comments</a> | 
+  <a href="#">More Details</a>
+</p>
+</div>
+
+<br/>
+
+<div class="thumbnail">
+<h3><a href="#" title="my web solutions">Web development history</a></h3>
+<p class="meta">Added by <a href="#" title="Posts by admin">admin</a> on <a href="#">November 14th, 2012</a>, filed under <a href="#" title="View all posts in Category 3">Category 3</a></p>
+<a href="blog_details.html" style="display:block; background:url(themes/images/blog/1.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+
+<p>This affordable Mobile Web Design Package offers up to 20% Discount for our new clients. We believ our clients are 100% satisfied with us and our services packages. 
+We do it all for you from start to finish. When the mobile website is completed, you can visit your website from handheld device(ie. Mobile, i-pad etc).
+Our website prices below are complete - there are NO HIDDEN EXTRAS! </p>
+
+<p>This affordable Mobile Web Design Package offers up to 20% Discount for our new clients. We believ our clients are 100% satisfied with us and our services packages. 
+We do it all for you from start to finish. When the mobile website is completed, you can visit your website from handheld device(ie. Mobile, i-pad etc).
+Our website prices below are complete - there are NO HIDDEN EXTRAS! [<a href="blog_details">More Details</a>]</p>
+
+ <div class="btn-toolbar">
+  <div class="btn-group toolTipgroup">
+    <a class="btn" href="#" data-placement="left" data-original-title="send email"><i class="icon-envelope"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="do you like?"><i class="icon-thumbs-up"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="dont like?"><i class="icon-thumbs-down"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="share"><i class="icon-link"></i></a>
+    <a class="btn" href="#" data-placement="right" data-original-title="print"><i class="icon-print"></i></a>
+  </div>
+</div>
+ <p>
+  <a href="#" title="Comment on Cras in odio nisi">8 Comments</a> | 
+  <a href="#">Add Comments</a> | 
+  <a href="#">More Details</a>
+</p>
+</div>
+<br/>
+
+<div class="thumbnail">
+<h3><a href="#" title="my web solutions">Low Cost Web Design Price List (+ 10% OFF)</a></h3>
+<p class="meta">Added by <a href="#" title="Posts by admin">admin</a> on <a href="#">November 14th, 2012</a>, filed under <a href="#" title="View all posts in Category 3">Category 3</a></p>
+<div id="myCarousel" class="carousel slide blogCarousel">
+  <div class="carousel-inner">
+    <div  style="text-align:center"  class=" item active">
+      <a href="blog_details.html" style="display:block; background:url(themes/images/blog/1.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+    </div>
+    <div  style="text-align:center"  class="item">
+      <a href="blog_details.html" style="display:block; background:url(themes/images/blog/2.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+    </div>
+    <div  style="text-align:center"  class="item">
+      <a href="blog_details.html" style="display:block; background:url(themes/images/blog/3.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+    </div>
+    <div  style="text-align:center"  class="item">
+      <a href="blog_details.html" style="display:block; background:url(themes/images/blog/4.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+    </div>
+    <div  style="text-align:center"  class="item">
+      <a href="blog_details.html" style="display:block; background:url(themes/images/blog/5.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+    </div>
+    <div  style="text-align:center"  class="item">
+      <a href="blog_details.html" style="display:block; background:url(themes/images/blog/6.jpg) no-repeat center center; height:250px; max-height:250px; margin-bottom:18px"></a>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<p>This affordable Mobile Web Design Package offers up to 20% Discount for our new clients. We believ our clients are 100% satisfied with us and our services packages. 
+We do it all for you from start to finish. When the mobile website is completed, you can visit your website from handheld device(ie. Mobile, i-pad etc).
+Our website prices below are complete - there are NO HIDDEN EXTRAS! </p>
+
+<p>This affordable Mobile Web Design Package offers up to 20% Discount for our new clients. We believ our clients are 100% satisfied with us and our services packages. 
+We do it all for you from start to finish. When the mobile website is completed, you can visit your website from handheld device(ie. Mobile, i-pad etc).
+Our website prices below are complete - there are NO HIDDEN EXTRAS! [<a href="blog_details">More Details</a>]</p>
+
+ <div class="btn-toolbar">
+  <div class="btn-group toolTipgroup">
+    <a class="btn" href="#" data-placement="left" data-original-title="send email"><i class="icon-envelope"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="do you like?"><i class="icon-thumbs-up"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="dont like?"><i class="icon-thumbs-down"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="share"><i class="icon-link"></i></a>
+    <a class="btn" href="#" data-placement="right" data-original-title="print"><i class="icon-print"></i></a>
+  </div>
+</div>
+ <p>
+  <a href="#" title="Comment on Cras in odio nisi">6 Comments</a> | 
+  <a href="#">Add Comments</a> | 
+  <a href="#">More Details</a>
+</p>
+</div>
+<br/>
+
+<br/>
+<div class="thumbnail">
+<h3><a href="#" title="my web solutions">which is best for you?</a></h3>
+<p class="meta">Added by <a href="#" title="Posts by admin">admin</a> on <a href="#">November 14th, 2012</a>, filed under <a href="#" title="View all posts in Category 3">Category 3</a></p>
+
+</p>
+<p>
+We specialise in web design, web development and graphic design for different Desktop, Mobiles and Tablets.
+
+We recently introduce cheapest and best mobile web design packages in our services. This is most popular and beneficial for everyone. If you are looking for upgrade your website computable in mobiles and tablets, Even if you don’t have any website, then just remember us and makes your dream success. We are giving the best solution for your best value of money. [<a href="#">More Details</a>]
+ 
+ </p>
+ <div class="btn-toolbar">
+  <div class="btn-group toolTipgroup">
+    <a class="btn" href="#" data-placement="left" data-original-title="send email"><i class="icon-envelope"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="do you like?"><i class="icon-thumbs-up"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="dont like?"><i class="icon-thumbs-down"></i></a>
+    <a class="btn" href="#" data-placement="top" data-original-title="share"><i class="icon-link"></i></a>
+    <a class="btn" href="#" data-placement="right" data-original-title="print"><i class="icon-print"></i></a>
+  </div>
+</div>
+ <p>
+  <a href="#" title="Comment on Cras in odio nisi">8 Comments</a> | 
+  <a href="#">Add Comments</a> | 
+  <a href="#">More Details</a>
+</p>
+</div>
+              
+                    <!--End Donut Example-->
+                </div>
+               
+            
+    
+         
+
+
+       
+        <!-- end page-wrapper -->
+
+        <div class="col-lg-4">
+          <div class="alert alert-danger text-center">
+                        <i class="fa fa-calendar fa-3x"></i><br>&nbsp;<b>20 </b> members have birthday today.
+
+                    </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- end wrapper -->
+
+
+
+   
+
+
+
+
+
+    <!-- Core Scripts - Include with every page -->
+   
+    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets/plugins/pace/pace.js"></script>
+    <script src="assets/scripts/siminta.js"></script>
+    <!-- Page-Level Plugin Scripts-->
+    <script src="assets/plugins/morris/raphael-2.1.0.min.js"></script>
+  
+   
+
+</body>
+
+</html>

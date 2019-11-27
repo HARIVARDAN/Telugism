@@ -1,0 +1,357 @@
+<html>
+<head><title>REGISTRATION</title></head>
+<link rel="stylesheet"  href="css/register.css"type="text/css">
+
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/firebase.js"></script>
+
+
+<body>
+<br>
+<h2 style="color: brown; text-align: center; ">EDIT DETAILS</h2>
+<br>
+
+<table width="100%">
+<tr>
+<td width="20%">
+
+
+</td>
+<td width="60%">
+
+<div   align="center" >
+
+
+<section>
+<p id="border">
+
+
+
+<h2><b>Personal Details</b></h2>
+YEAR ID<tab5><tab1>
+<input type="text" name="yid" id="yid" required="" size="30"><br><br>
+
+
+
+ADMISSION NUMBER
+<input type="text" name="admn" id="admn" required="" size="30"><br><br>
+NAME<tab5><tab1><tab4>
+<input type="text" name="name" id="name" required="" size="30"><br>
+<br>
+
+GENDER<tab5><tab1>
+<input type="radio" name="gender"   id="male" onclick="gender();" VALUE="MALE">MALE
+<input type="radio" name="gender" id="female" onclick="gender();" VALUE="FEMALE">FEMALE
+<input type="radio" name="gender" id="trans" onclick="gender();" VALUE="TRANS">TRANS
+<br><br>
+
+DATE OF BIRTH<tab1><tab4>
+<select name="day" id="day" required="">
+<option value="SELECT" selected >DAY</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+<select name="month" id="month" required="">
+<option value="SELECT" selected >MONTH</option>
+<option value="1">JANUARY</option>
+<option value="2">FEBRUARY</option>
+<option value="3">MARCH</option>
+<option value="4">APRIL</option>
+<option value="5">MAY</option>
+<option value="6">JUNE</option>
+<option value="7">JULY</option>
+<option value="8">AUGUST</option>
+<option value="9">SEPTEMBER</option>
+<option value="10">OCTOBER</option>
+<option value="11">NOVEMBER</option>
+<option value="12">DECEMBER</option>
+</SELECT>
+<select name="year" id="year">
+<option value="SELECT" selected >YEAR</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+</SELECT><br><br>
+
+
+
+
+BRANCH<tab5><tab1>&nbsp
+<select name="branch" id="branch" required="" >
+<option value="select"></option>
+<option value="cse">COMPUTER SCIENCE & ENGG.</option>
+<option value="dcse">DUAL CSE</option>
+<option value="ece">ECE</option>
+<option value="eie">EIE</option>
+<option value="mec">MECHANICAL ENGG. </option>
+<option value="civil">CIVIL ENGG.</option>
+<option value="eee">ELECTRICAL ENGG.</option>
+<option value="min">MINING ENGINEERING</option>
+<option value="minmec">MINING MACHINERY</option>
+<option value="petro">  PETROLEUM ENGINEERING </option>
+<option value="mineral">  MINERAL ENGINEERING </option>
+<option value="agp">APPLIED GEOPHYSICS</option>
+</select>
+<br><br>
+
+VILLAGE<tab5><tab1>
+<input type="text" name="vil" id="vil" size="30" required=""><br><br>
+
+CITY<tab2>
+<input type="text" name="city" id="city" size="30" required=""><br><br>
+
+DISTRICT<tab5><tab1>
+<input type="text" name="dis" id="dis" size="30" required=""><br><br>
+
+STATE<tab5><tab1><TAB4>&nbsp&nbsp&nbsp
+<select name="state" id="state" required="">
+<option value="select"selected>SELECT</option>
+<option value="ap">ANDHRA  PRADESH  STATE  - AP</option>
+<option value="ts">TELANGANA  STATE -  TS</option>
+</SELECT>
+<br><br>
+
+PHONE<tab5><tab1><tab4>
+<input type="text" name="phone" id="phone" size="30" maxlength="10" required=""><br><br>
+
+EMAIL<tab5><tab1><tab4>
+<input type="email" name="email" id="email" size="30" required=""><br><br>
+
+
+<b>LogIn Details</b><br><br>
+USER NAME<tab5><tab1>
+<input type="text" name="user" id="user"  style="text-transform: lowercase;"size="25"><br><br>
+PASSWORD<tab5><tab1>
+<input type="password" name="pwd" id="pwd"size="25" required=""><br><br>
+CONFIRM PASSWORD<tab4>
+<input type="password" name="cpwd" id="cpwd" size="25" required=""><br><br>
+
+<input type="submit" name="submit" id="submit" class="buttom"style="background: #4b8df9;width: 150px;height: 25px;" value="SAVE"><br>
+
+<br>
+<br>
+
+
+</div>
+</div>
+<br>
+<br>
+</td>
+<td width="20%">
+	
+</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+	
+
+     var ref = new Firebase('https://panchayat.firebaseio.com/');
+      var genders="";
+     
+      
+    function gender() {
+    if (document.getElementById('male').checked){
+    	 genders="male";}
+    else if(document.getElementById('female').checked)
+    	genders="female";
+    else if(document.getElementById('trans').checked)
+    	genders="trans";
+}
+
+
+
+
+      $('#submit').click(function() {
+
+     
+
+          var yid = $('#yid').val();
+          var admn=$('#admn').val();
+          var name = $('#name').val();
+          var branch=$('#branch').val();
+         
+        
+          var day=$('#day').val();
+          var month=$('#month').val();
+          var year=$('#year').val();
+          var phone=$('#phone').val();
+          var email = $('#email').val();
+          var vil=$('#vil').val();
+          var city=$('#city').val();
+          var dis=$('#dis').val();
+          var state=$('#state').val();
+
+          var user=$('#user').val();
+          var pwd = $('#pwd').val();
+          var cpwd = $('#cpwd').val();
+         
+         var user_email=user.concat("@gmail.com");
+         var dob=day+"/"+month+"/"+year; 
+         //var user1=user.tolowercase();
+         //console.log(user1);
+         
+         
+   if(yid!="" && admn!="" && name!="" && branch!="" && day!="" &&  month!="" &&  year!="" && phone!="" && email!="" && vil!="" && city!="" && dis!="" && state!="" && user!="" && pwd!="" &&cpwd!=""){
+
+     if(pwd==cpwd)
+     {
+               
+       
+
+          ref.child(name).set({yid:yid,admission_no:admn,branch:branch,gender:genders, dod:dob,name:name,uid:userData.uid,phone:phone,village:vil,city:city,district:dis,state:state,email:email,password:pwd});
+
+        
+
+
+ alert("Successfully saved Details ");
+
+     
+       /*   $('#name').val('');
+          $('#email').val('');
+          $('#pwd').val('');
+          $('#cpwd').val('');*/
+
+
+
+location.href="home.html";
+
+
+        
+     
+
+
+}      
+  else 
+        alert("Please check password");    
+
+}
+
+else
+   alert("hai");
+   
+});  
+
+
+
+
+
+
+
+</script>
+
+
+<style type="text/css">
+	
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+img { 
+	border:0;
+}
+
+/* General Demo Style */
+
+a{
+	color: #333;
+	text-decoration: none;
+}
+
+.form{
+	background:#f1f1f1;  margin:0 auto;  
+        color: black;
+        border-radius: 1em;
+        padding: 1em;
+        position: relative;
+        height:730;
+        bottom: 5%;
+        top: 5%;
+}
+.form fieldset{border:0px; padding:0px; margin:0px;}
+.form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
+
+.form input[type="text"] { width: 400px; }
+.form input[type="email"] { width: 400px; }
+.form input[type="password"] { width: 400px; }
+.form input.birthday{width:60px;}
+.form input.birthyear{width:120px;}
+.form label { color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica; }
+.form label.month {width: 135px;}
+.form input, textarea { background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(122, 192, 0, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px; }
+.form input:focus, textarea:focus { border: 1px solid #ff5400; background-color: rgba(255, 255, 255, 1); }
+.form .select-style {
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-image: url(images/select-arrow.png), 
+    -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-position: center right;
+  background-repeat: no-repeat;
+  border: 0px solid #FFF;
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;}
+.form .gender {
+  width:410px;
+  }
+.form input.buttom{ background: #4b8df9; display: inline-block; padding: 5px 10px 6px; color: #fbf7f7; text-decoration: none; font-weight: bold; line-height: 1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; box-shadow: 0 1px 3px #999; text-shadow: 0 -1px 1px #222; border: none; position: relative; cursor: pointer; font-size: 14px; font-family:Verdana, Geneva, sans-serif;}
+.form input.buttom:hover	{ background-color: #2a78f6; }
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

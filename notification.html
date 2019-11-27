@@ -1,0 +1,341 @@
+<html>
+<head>
+	
+
+<link rel="stylesheet" type="text/css" href="css/modal_css.css">
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/modal_bootstrap.js"></script>
+<script type="text/javascript" src="javascript/firebase.js"></script>
+<script type="text/javascript" src="javascript/firebase2.js"></script>
+<link rel="stylesheet" href="assets/animate/animate.css" />
+  <link rel="stylesheet" href="assets/animate/set.css" />
+  <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="themes/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="themes/css/font-awesome.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+
+
+
+
+
+
+
+<div id="page-wrapper" style="margin-left: 0px; " >
+<div class="row">
+<div class="col-lg-12">
+  <h1 class="page-header">Notifications</h1>
+</div>
+ </div> 
+
+<div class="row">
+<div class="col-lg-9">
+  <div class="panel-footer" >
+                            
+                                
+                                    <button class="btn btn-warning btn-sm"  id="post_btn" style="align-self: center; " >
+                                                   I want to Post....
+                                    </button>
+                             
+                        </div>
+
+</div>
+  
+</div>
+
+<div class="row">           
+<div class="col-lg-9">  <h6>
+<div style="text-align: center; " id="posts_start" >       
+
+
+ 
+
+
+
+<!-- Sidebar comumn -->
+
+
+<br/>
+
+</h6>
+</div>
+
+
+
+<div class="col-lg-3" >
+          <div class="alert alert-danger text-center">
+                        <i class="fa fa-calendar fa-3x"></i><br>&nbsp;<b>20 </b> members have birthday today.
+
+                    </div>
+
+
+
+        </div>
+
+
+</div>
+
+ <!-- Footer
+  ================================================== -->
+
+
+
+ 
+
+
+<div class="modal fade" id="uploading" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="title"></h4>
+        </div>
+       
+        
+      </div>
+      
+    </div>
+  </div>
+
+
+<div class="modal fade" id="post_info" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" align="center" >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 style="color: orange; " >My Post</h3>
+          <h4 class="modal-title" >
+         </h4>
+            <input type="text" class="form-control input-sm" id="heading" placeholder="Title">
+          
+        </div>
+        <div class="modal-body">
+     
+                   <div class="btn btn-warning btn-sm" id="image-upload" >
+                            <label for="image-input" >
+                               Image
+                              <img src="images/photo1.jpg" width="30px" height="20px;"  >
+                            </label>
+                            <input type="file" accept="image/*,capture=camera" id="image-input">
+                     </div>
+            &nbsp&nbsp &nbsp&nbsp
+                  <div class="btn btn-warning btn-sm" id="image-upload" >
+                            <label for="file-input" >
+                               file
+                              <img src="images/photo1.jpg" width="30px" height="20px;"  >
+                            </label>
+                            <input type="file" accept="file/*" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" id="file-input">
+                     </div>
+
+                     <br><br>
+      <img src="assets/img/user.jpg" id="image" style="max-width: 300px;max-height: 550px; " ><br><br>
+              <hr>
+           <h5> </h5>
+          <p style="font-size: 16px;" id="info">
+            <textarea class="form-control input-sm" id="more_info_txt" name="" placeholder="More Information" rows="8" style="width: 80%; height: 120px;" cols="5"></textarea>
+          </p>
+        </div>
+        <button style="background-color: green; width: 25%;height: 4%; font-size: 25px; " id="post" >Post</button>
+         <br><br>
+      </div>
+     
+    </div>
+  </div>
+
+<script type="text/javascript" src="javascript/firebase2.js"></script>
+
+
+<script type="text/javascript">
+
+ var dataURL="";
+ var file="",downloadURL="",image_downloadURL="",file_downloadURL="" ;
+    $(document).ready(function() {
+        $("#image-input").on("change", function(event) {
+          var input = event.target;
+           reader = new FileReader();
+          reader.onload = function(){
+            dataURL = reader.result;
+                  
+            $("#image").attr("src", dataURL);
+          };
+          reader.readAsDataURL(input.files[0]);
+        });
+      });
+
+
+
+	$(document).ready(function(){
+  $("#post_btn").click(function(){
+
+     $("#post_info").modal({backdrop: true});
+
+  });
+
+
+    var config = {
+    apiKey: "AIzaSyC-8zD5Y2EoruGusTl9ndAFRVasFjq4f9Y",
+    authDomain: "telugismchat.firebaseapp.com",
+    databaseURL: "https://telugismchat.firebaseio.com",
+    storageBucket: "telugismchat.appspot.com",
+  };
+  firebase.initializeApp(config);
+
+    $(window).load(function(){
+
+ firebase.database().ref().limitToLast(8).on('child_added', function(snapshot) {
+        var Posts = snapshot.val();
+         console.log(Posts.name,Posts.title);
+
+       displayPosts(Posts.title, Posts.time,Posts.more_info,Posts.image_downloadURL,Posts.file_downloadURL,Posts.name);
+      });
+
+
+});
+
+
+  $("#post").click(function(){
+
+    $('#post_info').modal('hide');
+$("#uploading").modal({backdrop: true});
+$('#title').text("Uploading.......");
+          var title = $('#heading').val();
+          var more_info=$('#more_info_txt').val();
+
+          console.log(title);
+          console.log(more_info);
+          var storage = firebase.storage();
+          var storageRef = storage.ref();
+
+          var imagesRef = storageRef.child('images');
+          var filesRef=storageRef.child('files');
+
+         
+
+var image_file = document.getElementById('image-input').files[0];
+var file = document.getElementById('file-input').files[0];
+      // File or Blob, assume the file is called rivers.jpg
+
+// Upload the file to the path 'images/rivers.jpg'
+// We can use the 'name' property on the File API to get our file name
+
+if(dataURL!=""){
+var uploadTask = imagesRef.child(image_file.name).put(image_file);
+}
+else{
+  var uploadTask = filesRef.child(file.name).put(file);
+}
+// Register three observers:
+// 1. 'state_changed' observer, called any time the state changes
+// 2. Error observer, called on failure
+// 3. Completion observer, called on successful completion
+uploadTask.on('state_changed', function(snapshot){
+  // Observe state change events such as progress, pause, and resume
+  // See below for more detail
+  
+  
+  console.log(snapshot);
+}, function(error) {
+  console.log(error);
+  // Handle unsuccessful uploads
+}, function() {
+  // Handle successful uploads on complete
+  // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+   downloadURL = uploadTask.snapshot.downloadURL;
+  console.log(downloadURL);
+});
+ 
+    setTimeout(function(){
+          if(dataURL!=""){
+          
+            console.log(downloadURL);
+              image_downloadURL=(downloadURL).toString();
+              var time=(new Date()).toString();
+         firebase.database().ref().push({title:title,more_info:more_info,image_downloadURL:image_downloadURL,file_downloadURL:file_downloadURL,name:name,time:time});
+   }
+      else{
+        console.log(downloadURL);
+        file_downloadURL=(downloadURL).toString();
+        var time=(new Date()).toString();
+         firebase.database().ref().push({title:title,more_info:more_info,image_downloadURL:image_downloadURL,file_downloadURL:file_downloadURL,name:name,time:time});
+      }
+
+
+    },6000);
+   $('#title').text("Successfully Uploaded");
+    $('#uploading').modal('hide');
+    });
+
+
+
+
+
+    $("#ism_iit").click(function(){
+     
+        console.log("hi");
+    	 $("#more_info").modal({backdrop: true});
+    	$('#title').text("ISM to IIT");
+    	$('#info').text("Years of struggle became success .....    ISM to IIT bill is passed ");
+        
+    });
+    $("#session").click(function(){
+         location.href="#";
+        $("#more_info").modal({backdrop: true});
+    	$('#title').text("IIT session in Dhanbad");
+    	$('#info').text("IIT Dhanbad sesssion is going to start on 18 July 2016 ");
+    });
+});
+
+
+   function displayPosts(title,time,more_info,image,file,name) {
+        
+ 
+           if(image!=""){
+
+            $('#posts_start').prepend('<div class="thumbnail"><h3><a href="#">'+title+'</a></h3><p class="meta">Added by <b><i><a href="#">'+name+' </a></i></b> on '+time+'<a href="'+image+'"  style="display:block; background:url('+image+') no-repeat center center; height:250px;max-width:600px; max-height:250px; margin-bottom:18px; "  download="Notifications.jpg">Download Image</a><span style="font-size:25px;">'+more_info+'</span></div><br/>');
+
+                 }
+
+             else{
+
+               $('#posts_start').prepend('<div class="thumbnail"><h3><a href="#">'+title+'</a></h3><p class="meta">Added by <b><i><a href="#">'+name+' </a></i></b> on '+time+'<a href="'+file+'"  style="display:block; background:url(images/pdf.jpg)  no-repeat center center; height:250px;max-width:500px; max-height:250px; margin-bottom:18px"><img src="images?pdf.jpg">Download '+ title +'</a><span style="font-size:25px;">'+more_info+'</span></div><br/>');
+
+             }    
+             
+            
+}
+
+
+
+
+
+  </script>
+
+
+
+
+
+<style type="text/css">
+  
+  #image-upload > input{
+    display: none;
+  }
+   #file-upload > input{
+    display: none;
+  }
+</style>
+
+
+</body>
+</html>

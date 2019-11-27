@@ -1,0 +1,180 @@
+
+<html>
+<head>
+<title>HOME</title>
+</head>
+<body style="background-color: #D3D4DF" >
+
+
+
+<link href="css/index.css" rel="stylesheet" type="text/css">
+
+
+
+
+ 
+ <!-- <table style="width: 100%;">        
+
+<tr> 
+
+<td style="width: 20%;height: 20%">
+
+<img src="images/ismlogo.jpg" style="margin-left: 25%; background-color: #f1f1f1; " height="100" width="110" align="middle" align="center">
+</td>
+
+<td style="width:55%;height: 20%;">
+	
+	<h1 class="modal-title" style="color:green;text-align: center; font: Andalus; font-style:Andalus; "><strong>TELUG<span style="color:red">ISM  </span></strong></h1>
+    
+
+</td>
+
+<td width="25%">
+	<br>
+</td>
+
+</tr>
+
+<tr style="height: 100%; width: 100%;">
+
+<td style="width:20%; "> -->
+
+
+
+<table width="100%" border="0" style="background-color: #D3D4DF" >
+
+<tr>
+<td width="30%" >
+
+
+  <img src="images/ismlogo.jpg" style=" background-color: #f1f1f1; " height="90" width="110" align="middle" align="center"><br>
+  <button type="button" class="btn btn-info btn-md" id="myBtn" style="width: 100px;">HOME</button>
+  <button type="button" class="btn btn-info btn-md" id="myBtn2" style="width: 100px;">CONTACT</button>
+  <button type="button" class="btn btn-info btn-md" id="myBtn3" style="width: 100px;">ABOUT</button>
+
+
+</td>
+
+
+<td width="35%">
+<h1 class="modal-title" style="color:green;text-align: center; font: Andalus; font-style:Andalus; "><strong>TELUG<span style="color:red">ISM  </span></strong></h1> 
+<br><br><br>
+</td>
+
+
+
+<!--  </td>
+
+<td width="60%" height="100%">
+
+<img src="images/photo.jpg" style="width: 93%;height: 105%; border-collapse: 0; border-radius: 10px;margin-left: 1%; margin-top: 5%;">
+
+</td>
+
+<td width="30%";>
+ -->
+
+
+<td width="35%" >
+<p id="corner1" style="padding-left: 15px;" >
+
+
+USER NAME
+<tab2>&nbsp&nbsp&nbspPASSWORD
+<br>
+ <input type="text" id="user" name="user" placeholder="username" style="width: 200px; height:25px;"> 
+
+
+<tab1>
+
+ <input type="password" id="pass" name="pass" placeholder="password" style="width: 200px; height:25px;">
+
+&nbsp&nbsp<input type="submit" name="submit" value="Log In" style="background: #4b8df9;width: 80px;height: 25px;"><br><br>
+
+<tab5> <input type="button" name="forget" value="forgot password?" style="width: 140px;height: 25px; background-color: #D3D4DF">
+
+
+
+
+<tab1>
+<input type="button" name="reg" id="register" value="  New Registration "  style="background: #A2D0C7;border-radius: 2px; width: 150px;height: 25px;" size="80"></a><br>
+<br>
+
+
+	
+</td>
+</tr>
+</table> 
+
+		<img src=" images/photo1.jpg" height="76%" width="100%" >
+  
+
+<h4 align="center">All Rights reserved</h4>
+
+<div class="modal fade" id="contact" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contact us</h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 16px;">K.Hari Vardanachari<br>IIT-ISM Dhanbad<br>Dhanbad<br>Jharkhand<br>826004<br>Ph:00000000</p>
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="about" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contact us</h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 16px;">TELUG<B>ISM</B> is the site of Telugu students <BR> studying in IIT-ISM</p>
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/modal_bootstrap.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $("#myBtn").click(function(){
+    	location.href="index.html";
+        
+    });
+    $("#myBtn2").click(function(){
+       $("#contact").modal({backdrop: true});
+    });
+    $("#myBtn3").click(function(){
+        $("#about").modal({backdrop: true});
+    });
+
+    $("#register").click(function(){
+    	location.href="register.html";
+    });
+
+});
+
+</script>
+
+</body></html>

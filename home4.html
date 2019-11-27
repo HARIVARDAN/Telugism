@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelugISM</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+   
+
+  <script type="text/javascript" src="javascript/jquery.js"></script>
+
+
+   <script type="text/javascript" src="javascript/firebase2.js"></script>
+
+<style type="text/css">
+    iframe{
+        border:none;
+    }
+</style>
+
+
+<script>
+  // Initialize Firebase
+ var config = {
+    apiKey: "AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M",
+    authDomain: "telugismregister.firebaseapp.com",
+    databaseURL: "https://telugismregister.firebaseio.com",
+    storageBucket: "telugismregister.appspot.com",
+  };
+  firebase.initializeApp(config);
+var uid="";
+var name="";
+var photo="";
+
+
+   firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(user);
+     uid=user.uid;
+      
+
+     name=user.displayName;
+      $('#user_name').text("Welcome "+name);
+      $('#side_user_name').text(name);
+     sessionStorage.setItem('name',name);
+
+
+     photo=user.photoURL;
+
+      $("#user_image").attr("src",photo);
+  sessionStorage.setItem('profile_photo',photo);
+   
+    // User is signed in.
+  } else {
+    location.href="index3.html";
+    console.log("user2");
+    // No user is signed in.
+  }
+});
+
+/*  console.log(firebase.database().ref().orderByChild('uid'));
+  console.log(firebase.database().ref().orderByChild('uid').equalTo(uid));
+firebase.database().ref().orderByChild('yid').equalTo('2015').on('child_added',function(snapshot){
+  
+  console.log(snapshot.key);
+  console.log(snapshot.val());
+});*/
+
+
+
+   
+
+  $('#logout').click(function() {
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+  location.href="index3.html";
+
+}, function(error) {
+  alert(error);
+  // An error happened.
+});
+
+
+
+});
+
+
+</script>
+
+   </head>
+<body>
+
+
+<a href="#" class="btn"  style="position: fixed; bottom: 38px; right: 10px; background-color: #f1f1f1" id="toTop"> <i class="icon-arrow-up"></i> Go to top</a>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home4.html">
+                  <strong> <h2 class="brand" style="color: #000000">Telug<span style="color:red">ISM</span></h2></b></strong>
+             
+                </a>
+
+              
+               
+            </div>
+
+              <div class="user-info" style="align-content: center; padding-left: 30%; ">
+              
+                  <div id="user_name" style="font-size: 25px; text-align: center; "> </div>
+                </div>
+
+
+
+            <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li id="notiifcation_symbol" class="dropdown">
+                    <a class="dropdown-toggle" target="main" href="notification.html">
+                        <span class="top-label label label-danger"></span><i class="fa fa-envelope fa-3x"></i>
+                    </a>
+                    <!-- dropdown-messages -->
+                   
+                    <!-- end dropdown-messages -->
+                </li>
+
+                <li id="chat_symbol" class="dropdown">
+                    <a class="dropdown-toggle" target="main" href="chat1.html">
+                        <span class="top-label label label-success"></span>  <i class="fa fa-tasks fa-3x"></i>
+                    </a>
+                    <!-- dropdown tasks -->
+                    
+                    <!-- end dropdown-tasks -->
+                </li>
+
+                <li id="search_symbol" class="dropdown">
+                    <a class="dropdown-toggle" target="main" href="search.html">
+                        <span class="top-label label label-warning"></span><i class="fa fa-bell fa-3x"></i>
+                    </a>
+                    <!-- dropdown alerts-->
+                 
+                    <!-- end dropdown-alerts -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle"  data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li id="profile_symbol" ><a href="profile.html" target="main" ><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>
+                        <li  class="divider"></li>
+                        <li id="logout_li_1" >
+                        <a> <i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                      </li>
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+
+            
+                
+                 <!-- user image section-->
+                        
+                           
+                        
+                            
+                       
+                        <!--end user image section-->
+
+            
+
+
+
+                <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+
+                
+                 
+
+        </nav>
+        <!-- end navbar top -->
+
+        <!-- navbar side -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+       
+            <!-- sidebar-collapse -->
+            <div class="sidebar-collapse">
+                <!-- side-menu -->
+                <ul class="nav" id="side-menu">
+
+
+                  <li>
+                        <!-- user image section-->
+                        <div class="user-section">
+                            <div class="user-section-inner">
+                                <img id="user_image" src="assets/img/user.jpg" alt="">
+                            </div>
+                            <div class="user-info">
+                                <div id="side_user_name"> User Name<strong></strong></div>
+                                <div class="user-text-online">
+                                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
+                                </div>
+                            </div>
+                        </div>
+                        <!--end user image section-->
+                    </li>
+
+
+
+                  
+                    <li class="sidebar-search">
+                        <!-- search section-->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!--end search section-->
+                    </li>
+
+
+  
+
+
+
+
+                       <li class="non_selected_btn" id="notification_li">
+                      <a href="notification.html" target="main"> 
+                      <i class="fa fa-dashboard fa-fw"></i>Notifications
+                        </a>
+                      </li>
+                   
+                     
+                 <li id="chat_li">
+                        <a href="chat1.html" target="main">
+                      
+                        
+                        <i class="fa fa-comment fa-fw"></i>Chat</a>
+                        
+                   </li>
+
+                     <li id="search_li">
+                  
+                        <a href="search.html" target="main">
+                          
+                        
+                        <i class="fa fa-search"></i>&nbsp Search</a>
+
+                    </li>    
+                  
+                        <li id="profile_li">
+                         <a id="profile"  href="profile.html" target="main">
+                         <i class="fa fa-edit fa-fw"></i>
+                        Profile</a>
+                        </li>
+                
+                      <li>
+                        <a   href="#"> <i class="fa fa-sitemap fa-fw"></i>ISM<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            
+                            <li id="clubs_li">
+                                <a  href="clubs.html" target="main">
+                                 ISM Clubs</a>
+                           
+                            <li id="fests_li">
+                                <a href="fests.html" target="main">ISM Fests</a>
+                            </li>
+                            <li id="startups_li">
+                                <a href="startups.html" target="main">ISM startups</a>
+                            </li>
+                            <li id="activities_li">
+                                <a href="activities.html" target="main">Activities</a>
+                            </li>
+                            
+                        </ul>
+                      </li>
+                        <!-- second-level-items -->
+                        <li id="alumni_li">
+                             <a><i class="fa fa-sign-out fa-fw"></i>Alumni</a>
+                        </li>
+                        <li id="qp_li">
+                             <a href="qp.html" target="main"><i class="fa fa-sign-out fa-fw"></i>Question Papers</a>
+                        </li>
+                        <li id="logout_li">
+                             <a><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                  
+                    
+                    
+                        
+                        <!-- second-level-items -->
+                    
+                </ul>
+                <!-- end side-menu -->
+            </div>
+            <!-- end sidebar-collapse -->
+        </nav>
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+        <div id="page-wrapper"  >
+         
+            <div id="row">
+
+
+  <div class="col-lg-16"  ><BR>
+
+  
+    <iframe src="notification.html" name="main" id="main" width="100%" height="1000px;"></iframe>
+    </div>
+
+ </div>
+
+ </div>
+
+
+        <!-- end page-wrapper -->
+    </div>
+    <!-- end wrapper -->
+<style type="text/css">
+    
+    .non_selected_btn{
+        background-color: green;
+    }
+
+    .selected_btn {
+        background-color: orange;
+
+    }
+</style>
+
+
+   <script type="text/javascript">
+       $('#notification_li').click(function() {
+ class_li();
+    $("#notification_li").attr("class","non_selected_btn");
+
+});
+
+          $('#notiifcation_symbol').click(function() {
+ class_li();
+    $("#notification_li").attr("class","non_selected_btn");
+
+});
+
+     $('#chat_li').click(function() {
+    class_li();
+    $('#chat_li').attr("class","non_selected_btn");
+  
+
+});
+
+         $('#chat_symbol').click(function() {
+    class_li();
+    $('#chat_li').attr("class","non_selected_btn");
+  
+
+});
+
+
+       $('#search_li').click(function() {
+       class_li();
+    $('#search_li').attr("class","non_selected_btn");
+   
+
+});
+
+       $('#search_symbol').click(function() {
+       class_li();
+    $('#search_li').attr("class","non_selected_btn");
+   
+
+});
+
+   $('#profile_li').click(function() {
+       class_li();
+        $('#profile_li').attr("class","non_selected_btn");
+});
+
+    $('#profile_symbol').click(function() {
+       class_li();
+        $('#profile_li').attr("class","non_selected_btn");
+});
+
+      $('#clubs_li').click(function() {
+   class_li();
+    $("#clubs_li").attr("class","non_selected_btn");
+
+});
+       $('#search_li').click(function() {
+       class_li();
+        $('#search_li').attr("class","non_selected_btn");
+});
+
+  
+      $('#fests_li').click(function() {
+   class_li();
+    $("#fests_li").attr("class","non_selected_btn");
+
+});
+
+     $('#activities_li').click(function() {
+   class_li();
+    $("#activities_li").attr("class","non_selected_btn");
+
+});
+
+        $('#startups_li').click(function() {
+   class_li();
+    $("#startups_li").attr("class","non_selected_btn");
+
+});
+
+      $('#qp_li').click(function() {
+   class_li();
+    $("#qp_li").attr("class","non_selected_btn");
+
+});
+
+     $('#logout_li').click(function() {
+        console.log("chars");
+ var key="firebase:authUser:AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M:[DEFAULT]";
+ localStorage.removeItem(key);
+ window.location.replace("index3.html");
+
+});
+
+      $('#logout_li_1').click(function() {
+        console.log("chars");
+ var key="firebase:authUser:AIzaSyDj79dtKLWlzbBqSavtEnF1Ft2z4Hjpd9M:[DEFAULT]";
+ localStorage.removeItem(key);
+ window.location.replace("index3.html");
+
+});
+
+
+
+   function class_li() 
+{
+        $('#profile_li').attr("class","");
+    $('#chat_li').attr("class","");
+    $("#notification_li").attr("class","");
+    $('#search_li').attr("class","");
+     $('#qp_li').attr("class","");
+    $('#clubs_li').attr("class","");
+    $('#fests_li').attr("class","");
+    $('#activities_li').attr("class","");
+    $('#startups_li').attr("class","");
+    $('#_li').attr("class","");
+    $('#chat_li').attr("class","");
+}
+   </script>
+
+
+
+
+
+    <!-- Core Scripts - Include with every page -->
+   
+    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets/plugins/pace/pace.js"></script>
+    <script src="assets/scripts/siminta.js"></script>
+    <!-- Page-Level Plugin Scripts-->
+    
+
+</body>
+
+</html>
